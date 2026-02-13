@@ -370,12 +370,29 @@
     /* Feature block — alternating layout */
     .feat {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: 1.2fr 0.8fr;
       gap: 48px;
       align-items: center;
       margin-bottom: 80px;
     }
     .feat:last-child { margin-bottom: 0; }
+
+    /* Feature 3: full-width single-column variant (R-001) */
+    .feat:nth-child(4) {
+      grid-template-columns: 1fr;
+      text-align: center;
+      max-width: 640px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .feat:nth-child(4) .feat__desc {
+      max-width: 480px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .feat:nth-child(4) .feat__visual {
+      order: 1;
+    }
     .feat--reverse .feat__visual { order: -1; }
 
     .feat__text {}
@@ -843,6 +860,7 @@
       }
       .feat--reverse .feat__visual { order: 0; }
       .feat__visual { order: -1; }
+      .feat:nth-child(4) { max-width: none; }
       .feat__phone {
         width: 180px;
         height: 360px;
