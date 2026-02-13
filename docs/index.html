@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>もちものポケット - 子育て家庭の忘れ物ゼロへ</title>
+  <meta name="description" content="シーン別テンプレートと我が家ルール学習で、使うほど家庭にフィットする持ち物チェックアプリ">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', Meiryo, sans-serif;
+      color: #333;
+      line-height: 1.7;
+    }
+
+    /* Hero */
+    .hero {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: #fff;
+      text-align: center;
+      padding: 80px 20px 60px;
+    }
+
+    .hero-icon {
+      font-size: 64px;
+      margin-bottom: 16px;
+    }
+
+    .hero h1 {
+      font-size: 2rem;
+      margin-bottom: 12px;
+      font-weight: 700;
+    }
+
+    .hero .subtitle {
+      font-size: 1.1rem;
+      opacity: 0.9;
+      margin-bottom: 32px;
+    }
+
+    .badge-group {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 24px;
+    }
+
+    .badge {
+      background: rgba(255,255,255,0.2);
+      padding: 6px 16px;
+      border-radius: 20px;
+      font-size: 0.85rem;
+    }
+
+    .app-store-btn {
+      display: inline-block;
+      background: #000;
+      color: #fff;
+      text-decoration: none;
+      padding: 12px 28px;
+      border-radius: 10px;
+      font-size: 1rem;
+      margin-top: 8px;
+      transition: opacity 0.2s;
+    }
+
+    .app-store-btn:hover { opacity: 0.85; }
+
+    .app-store-btn.coming-soon {
+      background: rgba(255,255,255,0.15);
+      border: 1px solid rgba(255,255,255,0.4);
+      cursor: default;
+    }
+
+    /* Sections */
+    section {
+      padding: 60px 20px;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    section h2 {
+      font-size: 1.5rem;
+      text-align: center;
+      margin-bottom: 40px;
+      color: #333;
+    }
+
+    /* Features */
+    .features {
+      background: #f8f9fa;
+    }
+
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 24px;
+    }
+
+    .feature-card {
+      background: #fff;
+      border-radius: 12px;
+      padding: 24px;
+      text-align: center;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    }
+
+    .feature-card .icon {
+      font-size: 36px;
+      margin-bottom: 12px;
+    }
+
+    .feature-card h3 {
+      font-size: 1rem;
+      margin-bottom: 8px;
+      color: #333;
+    }
+
+    .feature-card p {
+      font-size: 0.85rem;
+      color: #666;
+    }
+
+    /* Scenes */
+    .scenes-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      justify-content: center;
+    }
+
+    .scene-tag {
+      background: #eef0ff;
+      color: #4a5ab9;
+      padding: 8px 20px;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      font-weight: 500;
+    }
+
+    /* How it works */
+    .steps {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .step {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+    }
+
+    .step-num {
+      flex-shrink: 0;
+      width: 40px;
+      height: 40px;
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      color: #fff;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 1.1rem;
+    }
+
+    .step-content h3 {
+      font-size: 1rem;
+      margin-bottom: 4px;
+    }
+
+    .step-content p {
+      font-size: 0.85rem;
+      color: #666;
+    }
+
+    /* Footer */
+    footer {
+      background: #f8f9fa;
+      text-align: center;
+      padding: 40px 20px;
+      font-size: 0.85rem;
+      color: #888;
+    }
+
+    footer a {
+      color: #667eea;
+      text-decoration: none;
+      margin: 0 12px;
+    }
+
+    footer a:hover { text-decoration: underline; }
+
+    .footer-links { margin-bottom: 12px; }
+
+    /* Responsive */
+    @media (max-width: 480px) {
+      .hero h1 { font-size: 1.5rem; }
+      .hero { padding: 60px 16px 40px; }
+      section { padding: 40px 16px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Hero -->
+  <div class="hero">
+    <div class="hero-icon">🎒</div>
+    <h1>もちものポケット</h1>
+    <p class="subtitle">子育て家庭の忘れ物ゼロへ。<br>使うほど、家庭にフィットする持ち物チェックアプリ。</p>
+    <div class="badge-group">
+      <span class="badge">完全無料</span>
+      <span class="badge">オフライン対応</span>
+      <span class="badge">広告なし</span>
+    </div>
+    <span class="app-store-btn coming-soon">App Store - 近日公開</span>
+  </div>
+
+  <!-- Features -->
+  <section class="features">
+    <h2>主な機能</h2>
+    <div class="feature-grid">
+      <div class="feature-card">
+        <div class="icon">🧙</div>
+        <h3>3ステップ自動生成</h3>
+        <p>シーン・参加メンバー・条件を選ぶだけで、最適な持ち物リストを自動作成</p>
+      </div>
+      <div class="feature-card">
+        <div class="icon">🌙☀️</div>
+        <h3>前日夜 / 当日朝</h3>
+        <p>準備を2フェーズに分割。前日に詰めるもの・当日朝に入れるものを分けて管理</p>
+      </div>
+      <div class="feature-card">
+        <div class="icon">🏠</div>
+        <h3>我が家ルール学習</h3>
+        <p>使うほど家庭の好みを学習。「うちでは不要」「うちでは必要」を自動反映</p>
+      </div>
+      <div class="feature-card">
+        <div class="icon">📋</div>
+        <h3>履歴から再利用</h3>
+        <p>過去のチェックリストを保存。同じシーンなら呼び出してすぐ準備開始</p>
+      </div>
+      <div class="feature-card">
+        <div class="icon">👨‍👩‍👧‍👦</div>
+        <h3>家族構成で最適化</h3>
+        <p>生年月日で年齢区分を自動判定。乳児・未就学児・小学生に合わせたリストに</p>
+      </div>
+      <div class="feature-card">
+        <div class="icon">🔔</div>
+        <h3>リマインダー通知</h3>
+        <p>前日夜・当日朝にプッシュ通知でお知らせ。準備し忘れを防止</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Scenes -->
+  <section>
+    <h2>7つのシーンに対応</h2>
+    <div class="scenes-list">
+      <span class="scene-tag">🎒 遠足・校外学習</span>
+      <span class="scene-tag">🏊 プール</span>
+      <span class="scene-tag">🏫 通園・通学</span>
+      <span class="scene-tag">🏥 通院</span>
+      <span class="scene-tag">🌳 公園（半日）</span>
+      <span class="scene-tag">🧳 旅行（1泊）</span>
+      <span class="scene-tag">🏃 運動会</span>
+    </div>
+  </section>
+
+  <!-- How it works -->
+  <section class="features">
+    <h2>かんたん3ステップ</h2>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-content">
+          <h3>シーンを選ぶ</h3>
+          <p>遠足？プール？旅行？今回のおでかけシーンを選択</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-content">
+          <h3>メンバーと条件を選ぶ</h3>
+          <p>参加する家族と、天気・移動手段などの条件を選択</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-content">
+          <h3>チェックリスト完成！</h3>
+          <p>条件にぴったりの持ち物リストが自動生成。あとはチェックするだけ</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-links">
+      <a href="./privacy-policy">プライバシーポリシー</a>
+      <a href="./support">サポート・お問い合わせ</a>
+    </div>
+    <p>&copy; 2026 Takuya Nemoto</p>
+  </footer>
+
+</body>
+</html>
