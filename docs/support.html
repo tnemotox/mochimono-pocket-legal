@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>サポート・お問い合わせ - もちものポケット</title>
+  <meta name="description" content="もちものポケットのサポートページです。使い方ガイド・よくあるご質問・お問い合わせ先をまとめています。">
+  <meta name="theme-color" content="#0B5B7F">
+  <style>
+    /* ============================================
+       Design Tokens (LP共通)
+       ============================================ */
+    :root {
+      --c-cyan-light: #35B7D1;
+      --c-cyan: #1BA9D6;
+      --c-navy: #0B5B7F;
+      --c-navy-deep: #073B52;
+      --c-tint: #EEF8FB;
+      --c-tint-warm: #FFF9F5;
+      --c-bg: #FAFCFD;
+      --c-white: #FFFFFF;
+      --c-text: #1A2B35;
+      --c-text-sub: #4A6572;
+      --c-text-muted: #7A929E;
+      --c-border: #D6E4EA;
+      --c-accent: #FF8A65;
+      --c-accent-soft: #FFF0EB;
+
+      --ff: -apple-system, BlinkMacSystemFont, 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Noto Sans JP', Meiryo, sans-serif;
+      --fs-hero: clamp(2.25rem, 5.5vw, 3.5rem);
+      --fs-hero-sub: clamp(1rem, 2vw, 1.25rem);
+      --fs-section: clamp(1.5rem, 3.5vw, 2.125rem);
+      --fs-lead: clamp(1.125rem, 2.5vw, 1.375rem);
+      --fs-body: 1rem;
+      --fs-sm: 0.875rem;
+      --fs-xs: 0.8125rem;
+
+      --lh-tight: 1.35;
+      --lh-normal: 1.7;
+      --lh-relaxed: 1.85;
+
+      --w-max: 960px;
+      --w-narrow: 640px;
+
+      --ease: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+
+    /* ============================================
+       Reset (LP共通)
+       ============================================ */
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--ff);
+      color: var(--c-text);
+      line-height: var(--lh-normal);
+      background: var(--c-white);
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+    img, svg { display: block; max-width: 100%; }
+    a { color: inherit; }
+
+    /* ============================================
+       Utility (LP共通)
+       ============================================ */
+    .wrap {
+      width: 100%;
+      max-width: var(--w-max);
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+    .wrap--narrow { max-width: var(--w-narrow); }
+
+    /* ============================================
+       Header
+       ============================================ */
+    .header {
+      background: var(--c-white);
+      border-bottom: 1px solid var(--c-border);
+      padding: 16px 0;
+    }
+    .header .wrap {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .header__logo {
+      font-size: var(--fs-lead);
+      font-weight: 800;
+      color: var(--c-navy-deep);
+      text-decoration: none;
+      letter-spacing: -0.01em;
+    }
+    .header__nav {
+      display: flex;
+      gap: 20px;
+    }
+    .header__link {
+      font-size: var(--fs-sm);
+      color: var(--c-text-sub);
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+    .header__link:hover { color: var(--c-cyan); }
+
+    /* ============================================
+       Page Hero
+       ============================================ */
+    .page-hero {
+      padding: 72px 0 48px;
+      background: var(--c-tint);
+      text-align: center;
+    }
+    .page-hero__title {
+      font-size: var(--fs-section);
+      font-weight: 800;
+      color: var(--c-navy-deep);
+      margin-bottom: 12px;
+    }
+    .page-hero__desc {
+      font-size: var(--fs-body);
+      color: var(--c-text-sub);
+      max-width: 480px;
+      margin: 0 auto;
+      line-height: var(--lh-relaxed);
+    }
+
+    /* ============================================
+       Section shared
+       ============================================ */
+    .section {
+      padding: 72px 0;
+    }
+    .section--tint {
+      background: var(--c-tint);
+    }
+    .section--warm {
+      background: var(--c-tint-warm);
+    }
+    .section__kicker {
+      font-size: var(--fs-sm);
+      font-weight: 600;
+      color: var(--c-cyan);
+      margin-bottom: 8px;
+      letter-spacing: 0.04em;
+    }
+    .section__title {
+      font-size: var(--fs-section);
+      font-weight: 800;
+      line-height: var(--lh-tight);
+      color: var(--c-text);
+      margin-bottom: 16px;
+    }
+    .section__subtitle {
+      font-size: var(--fs-body);
+      color: var(--c-text-sub);
+      margin-bottom: 40px;
+      line-height: var(--lh-relaxed);
+      max-width: 560px;
+    }
+
+    /* ============================================
+       Guide - Stepper (LP "How it works" と統一)
+       ============================================ */
+    .stepper {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      position: relative;
+      max-width: 560px;
+    }
+    .stepper__line {
+      position: absolute;
+      left: 23px;
+      top: 40px;
+      bottom: 40px;
+      width: 2px;
+      background: var(--c-border);
+    }
+    .step {
+      display: flex;
+      gap: 20px;
+      padding: 20px 0;
+      position: relative;
+    }
+    .step__marker {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: var(--c-navy);
+      color: var(--c-white);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: var(--fs-body);
+      flex-shrink: 0;
+      z-index: 1;
+    }
+    .step:nth-child(2) .step__marker { background: var(--c-cyan); }
+    .step:nth-child(3) .step__marker { background: var(--c-cyan-light); }
+    .step:nth-child(4) .step__marker { background: var(--c-accent); }
+    .step__body { padding-top: 10px; }
+    .step__title {
+      font-size: var(--fs-body);
+      font-weight: 700;
+      color: var(--c-text);
+      margin-bottom: 4px;
+    }
+    .step__desc {
+      font-size: var(--fs-sm);
+      color: var(--c-text-sub);
+      line-height: var(--lh-normal);
+    }
+
+    /* ============================================
+       FAQ
+       ============================================ */
+    .faq-list {
+      max-width: 680px;
+    }
+    .faq-item {
+      border-bottom: 1px solid var(--c-border);
+      padding: 24px 0;
+    }
+    .faq-item:first-child {
+      padding-top: 0;
+    }
+    .faq-item:last-child {
+      border-bottom: none;
+    }
+    .faq-q {
+      font-size: var(--fs-body);
+      font-weight: 700;
+      color: var(--c-navy);
+      margin-bottom: 8px;
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+    }
+    .faq-q::before {
+      content: 'Q.';
+      color: var(--c-cyan);
+      font-weight: 800;
+      flex-shrink: 0;
+    }
+    .faq-a {
+      font-size: var(--fs-sm);
+      color: var(--c-text-sub);
+      line-height: var(--lh-relaxed);
+      padding-left: 28px;
+    }
+    .faq-a p {
+      margin-bottom: 8px;
+    }
+    .faq-a p:last-child {
+      margin-bottom: 0;
+    }
+    .faq-a ul {
+      margin: 8px 0;
+      padding-left: 20px;
+    }
+    .faq-a li {
+      margin-bottom: 4px;
+    }
+
+    /* ============================================
+       Contact
+       ============================================ */
+    .contact-card {
+      max-width: 560px;
+      background: var(--c-white);
+      border: 1px solid var(--c-border);
+      border-radius: 16px;
+      padding: 32px;
+    }
+    .section--warm .contact-card {
+      box-shadow: 0 4px 20px rgba(11, 91, 127, 0.06);
+    }
+    .contact-card__email {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--c-tint);
+      padding: 12px 20px;
+      border-radius: 8px;
+      font-size: var(--fs-body);
+      font-weight: 600;
+      color: var(--c-navy);
+      text-decoration: none;
+      margin-bottom: 20px;
+      transition: background 0.2s var(--ease);
+    }
+    .contact-card__email:hover {
+      background: var(--c-border);
+    }
+    .contact-card__note {
+      font-size: var(--fs-sm);
+      color: var(--c-text-sub);
+      line-height: var(--lh-relaxed);
+      margin-bottom: 20px;
+    }
+    .contact-card__checklist {
+      font-size: var(--fs-sm);
+      color: var(--c-text-sub);
+      line-height: var(--lh-relaxed);
+    }
+    .contact-card__checklist-title {
+      font-weight: 700;
+      color: var(--c-text);
+      margin-bottom: 8px;
+      font-size: var(--fs-sm);
+    }
+    .contact-card__checklist ul {
+      padding-left: 0;
+      list-style: none;
+    }
+    .contact-card__checklist li {
+      padding: 4px 0;
+      padding-left: 20px;
+      position: relative;
+    }
+    .contact-card__checklist li::before {
+      content: '✓';
+      color: var(--c-cyan);
+      font-weight: 700;
+      position: absolute;
+      left: 0;
+    }
+
+    /* ============================================
+       Footer (LP共通)
+       ============================================ */
+    .footer {
+      background: var(--c-navy-deep);
+      padding: 40px 0 32px;
+    }
+    .footer .wrap {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .footer__nav {
+      display: flex;
+      gap: 24px;
+    }
+    .footer__link {
+      color: rgba(255,255,255,0.6);
+      text-decoration: none;
+      font-size: var(--fs-sm);
+      transition: color 0.2s;
+    }
+    .footer__link:hover { color: var(--c-cyan-light); }
+    .footer__copy {
+      color: rgba(255,255,255,0.35);
+      font-size: var(--fs-xs);
+    }
+
+    /* ============================================
+       Responsive
+       ============================================ */
+    @media (max-width: 768px) {
+      .page-hero { padding: 56px 0 36px; }
+
+      .section { padding: 56px 0; }
+
+      .header__nav { gap: 12px; }
+      .header__link { font-size: var(--fs-xs); }
+
+      .footer .wrap {
+        flex-direction: column;
+        gap: 16px;
+        text-align: center;
+      }
+      .footer__nav { flex-direction: column; gap: 12px; }
+    }
+
+    @media (max-width: 480px) {
+      .wrap { padding: 0 16px; }
+      .page-hero { padding: 40px 0 28px; }
+      .section { padding: 40px 0; }
+      .contact-card { padding: 24px 16px; }
+      .header .wrap { flex-direction: column; gap: 12px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ==================== Header ==================== -->
+  <header class="header">
+    <div class="wrap">
+      <a href="./" class="header__logo">もちものポケット</a>
+      <nav class="header__nav" aria-label="メインナビゲーション">
+        <a href="./" class="header__link">トップページ</a>
+        <a href="./privacy-policy" class="header__link">プライバシーポリシー</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ==================== Page Hero ==================== -->
+  <section class="page-hero">
+    <div class="wrap">
+      <h1 class="page-hero__title">サポート・お問い合わせ</h1>
+      <p class="page-hero__desc">もちものポケットの使い方や、よくあるご質問をまとめました。困ったときはこのページをチェックしてみてください。</p>
+    </div>
+  </section>
+
+  <!-- ==================== 使い方ガイド ==================== -->
+  <section class="section">
+    <div class="wrap">
+      <div class="section__kicker">使い方ガイド</div>
+      <h2 class="section__title">はじめての方へ</h2>
+      <p class="section__subtitle">アプリを開いたら、4つのステップですぐに使い始められます。スクリーンショット付きの詳しいガイドは今後追加予定です。</p>
+
+      <div class="stepper">
+        <div class="stepper__line"></div>
+        <div class="step">
+          <div class="step__marker">1</div>
+          <div class="step__body">
+            <div class="step__title">家族を登録する</div>
+            <p class="step__desc">アプリを開いたら、まずお子さんの名前と年齢を登録します。きょうだいがいる場合は人数分追加できます。</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step__marker">2</div>
+          <div class="step__body">
+            <div class="step__title">おでかけシーンを選ぶ</div>
+            <p class="step__desc">遠足、プール、旅行など7つのシーンから、今回のおでかけに合ったものをタップします。</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step__marker">3</div>
+          <div class="step__body">
+            <div class="step__title">条件を設定してリスト生成</div>
+            <p class="step__desc">参加する家族メンバーと、天気や移動手段などの条件を選びます。条件に合った持ち物チェックリストが自動で作成されます。</p>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step__marker">4</div>
+          <div class="step__body">
+            <div class="step__title">チェックして準備完了</div>
+            <p class="step__desc">「前日よる」と「当日あさ」に分かれたリストで、ひとつずつチェック。使うたびにアプリが我が家のルールを覚えて、次回はもっとラクになります。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== FAQ ==================== -->
+  <section class="section section--tint">
+    <div class="wrap">
+      <div class="section__kicker">FAQ</div>
+      <h2 class="section__title">よくあるご質問</h2>
+      <p class="section__subtitle">お問い合わせの前に、こちらもチェックしてみてください。</p>
+
+      <div class="faq-list">
+
+        <!-- FAQ 1 -->
+        <div class="faq-item">
+          <div class="faq-q">データはどこに保存されますか？</div>
+          <div class="faq-a">
+            <p>すべてのデータはお使いの端末内にのみ保存されます。サーバーへの送信やクラウド同期は一切行いません。アカウント登録も不要なので、安心してお使いいただけます。</p>
+          </div>
+        </div>
+
+        <!-- FAQ 2 -->
+        <div class="faq-item">
+          <div class="faq-q">アプリは無料ですか？</div>
+          <div class="faq-a">
+            <p>はい、もちものポケットは完全無料です。アプリ内課金もありません。</p>
+          </div>
+        </div>
+
+        <!-- FAQ 3 -->
+        <div class="faq-item">
+          <div class="faq-q">広告は表示されますか？</div>
+          <div class="faq-a">
+            <p>いいえ、広告は一切表示されません。お子さんと一緒に見る画面だからこそ、すっきりした画面を大切にしています。</p>
+          </div>
+        </div>
+
+        <!-- FAQ 4 -->
+        <div class="faq-item">
+          <div class="faq-q">インターネット接続は必要ですか？</div>
+          <div class="faq-a">
+            <p>いいえ、完全オフラインで動作します。電波のないキャンプ場や山間部でも問題なくお使いいただけます。</p>
+          </div>
+        </div>
+
+        <!-- FAQ 5 -->
+        <div class="faq-item">
+          <div class="faq-q">対応しているシーンを教えてください。</div>
+          <div class="faq-a">
+            <p>現在、以下の7つのシーンに対応しています。</p>
+            <ul>
+              <li>遠足・校外学習</li>
+              <li>プール（学校/園）</li>
+              <li>通園・通学（通常日）</li>
+              <li>通院</li>
+              <li>公園（半日）</li>
+              <li>旅行（1泊）</li>
+              <li>運動会</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- FAQ 6 -->
+        <div class="faq-item">
+          <div class="faq-q">通知が届きません。</div>
+          <div class="faq-a">
+            <p>iOSの設定で通知が許可されているか確認してみてください。</p>
+            <p><strong>確認手順:</strong> 「設定」アプリ → 「通知」 → 「もちものポケット」 → 「通知を許可」がオンになっているか確認してください。</p>
+            <p>それでも届かない場合は、お手数ですがアプリを一度終了してから再度開いてみてください。</p>
+          </div>
+        </div>
+
+        <!-- FAQ 7 -->
+        <div class="faq-item">
+          <div class="faq-q">チェックリストを編集できますか？</div>
+          <div class="faq-a">
+            <p>はい、自由に編集できます。自動生成されたリストに対して、以下の操作ができます。</p>
+            <ul>
+              <li>持ち物の追加（「＋」ボタンから）</li>
+              <li>持ち物の削除（スワイプまたは編集モードで）</li>
+              <li>数量の変更（アイテムをタップして数量を調整）</li>
+            </ul>
+            <p>編集した内容は「我が家ルール」として学習され、次回から自動で反映されます。</p>
+          </div>
+        </div>
+
+        <!-- FAQ 8 -->
+        <div class="faq-item">
+          <div class="faq-q">家族を追加・削除するには？</div>
+          <div class="faq-a">
+            <p>アプリの「設定」画面から操作できます。</p>
+            <p><strong>追加:</strong> 設定 → 家族メンバー → 「メンバーを追加」をタップ → 名前と年齢を入力してください。</p>
+            <p><strong>削除:</strong> 設定 → 家族メンバー → 削除したいメンバーを左にスワイプ → 「削除」をタップしてください。</p>
+          </div>
+        </div>
+
+        <!-- FAQ 9 -->
+        <div class="faq-item">
+          <div class="faq-q">「我が家ルール」とは何ですか？</div>
+          <div class="faq-a">
+            <p>チェックリストを使うたびに、アプリがご家庭の傾向を学習する仕組みです。</p>
+            <p>たとえば「紙コップはいつも外す」「替えの靴下はいつも追加する」といった操作を覚えて、次回のリスト生成時に自動で反映します。使えば使うほど、ご家庭にぴったりのリストになっていきます。</p>
+          </div>
+        </div>
+
+        <!-- FAQ 10 -->
+        <div class="faq-item">
+          <div class="faq-q">天気や交通手段の条件とは？</div>
+          <div class="faq-a">
+            <p>チェックリスト作成時に選べるオプション条件です。たとえば「雨の日」を選ぶと雨具やビニール袋が自動で追加されたり、「車移動」を選ぶとチャイルドシート関連のアイテムが提案されたりします。</p>
+            <p>条件に合わせてリストが変わるので、より正確な準備ができます。</p>
+          </div>
+        </div>
+
+        <!-- FAQ 11 -->
+        <div class="faq-item">
+          <div class="faq-q">「前日よる」「当日あさ」の2フェーズとは？</div>
+          <div class="faq-a">
+            <p>持ち物を「前の晩に準備するもの」と「当日の朝に用意するもの」に分けて表示する仕組みです。</p>
+            <p>リュックに詰めるものは前日の夜に、お弁当や水筒は当日の朝に。フェーズを分けることで「朝やること」が明確になり、バタバタが減ります。</p>
+          </div>
+        </div>
+
+        <!-- FAQ 12 -->
+        <div class="faq-item">
+          <div class="faq-q">アプリを削除するとデータは消えますか？</div>
+          <div class="faq-a">
+            <p>はい、アプリを削除するとすべてのデータが完全に消去されます。データは端末内にのみ保存されているため、クラウドからの復元はできません。</p>
+            <p>再インストールした場合は、最初からのスタートになります。</p>
+          </div>
+        </div>
+
+        <!-- FAQ 13 -->
+        <div class="faq-item">
+          <div class="faq-q">機種変更時にデータを引き継げますか？</div>
+          <div class="faq-a">
+            <p>現在のバージョンではデータの引き継ぎ機能はありません。今後のアップデートで対応を検討しています。</p>
+          </div>
+        </div>
+
+        <!-- FAQ 14 -->
+        <div class="faq-item">
+          <div class="faq-q">Android版はありますか？</div>
+          <div class="faq-a">
+            <p>現在はiOS版のみの提供です。Android版については今後の開発を検討中です。ご要望として承りますので、お気軽にご連絡ください。</p>
+          </div>
+        </div>
+
+        <!-- FAQ 15 -->
+        <div class="faq-item">
+          <div class="faq-q">要望や機能リクエストを送れますか？</div>
+          <div class="faq-a">
+            <p>もちろんです！「こんな機能がほしい」「ここが使いにくい」など、どんな小さなことでも大歓迎です。下記のお問い合わせ先までメールでお送りください。いただいたご意見は、アプリの改善に役立てさせていただきます。</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== お問い合わせ ==================== -->
+  <section class="section section--warm">
+    <div class="wrap">
+      <div class="section__kicker">お問い合わせ</div>
+      <h2 class="section__title">困ったときはお気軽に</h2>
+      <p class="section__subtitle">FAQで解決しなかった場合は、メールでお問い合わせください。</p>
+
+      <div class="contact-card">
+        <a href="mailto:t.nemoto.x@gmail.com" class="contact-card__email">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          t.nemoto.x@gmail.com
+        </a>
+        <p class="contact-card__note">通常、2〜3営業日以内にご返信いたします。</p>
+
+        <div class="contact-card__checklist">
+          <div class="contact-card__checklist-title">スムーズなやりとりのために、以下をお知らせいただけると助かります</div>
+          <ul>
+            <li>ご利用の端末名（例: iPhone 15）</li>
+            <li>iOSのバージョン（例: iOS 18.0）</li>
+            <li>アプリのバージョン（設定画面で確認できます）</li>
+            <li>不具合の場合: どんな操作をしたときに起きたか</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== Footer (LP共通) ==================== -->
+  <footer class="footer">
+    <div class="wrap">
+      <nav class="footer__nav" aria-label="フッターナビゲーション">
+        <a href="./" class="footer__link">トップページ</a>
+        <a href="./privacy-policy" class="footer__link">プライバシーポリシー</a>
+      </nav>
+      <p class="footer__copy">&copy; 2026 Takuya Nemoto</p>
+    </div>
+  </footer>
+
+</body>
+</html>
