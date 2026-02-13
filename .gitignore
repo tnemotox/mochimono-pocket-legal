@@ -1,0 +1,44 @@
+# ==========================
+# Secrets / Credentials
+# ==========================
+.env
+.env.*
+.env.default
+.env.local
+*.p8
+*.p12
+*.pem
+*.key
+asc_api_key.json
+credentials.json
+service_account*.json
+
+# ==========================
+# OS
+# ==========================
+.DS_Store
+Thumbs.db
+
+# ==========================
+# IDE / Editor
+# ==========================
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# ==========================
+# Node (if applicable)
+# ==========================
+node_modules/
+npm-debug.log*
+yarn-error.log*
+
+# ==========================
+# Jekyll (GitHub Pages)
+# ==========================
+_site/
+.sass-cache/
+.jekyll-cache/
+.jekyll-metadata
