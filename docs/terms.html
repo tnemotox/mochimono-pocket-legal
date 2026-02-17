@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>利用規約 - もちものポケット</title>
+  <meta name="description" content="もちものポケットの利用規約。サービスの定義・アカウント・家族グループ・禁止事項等をご確認ください。">
+  <meta name="theme-color" content="#0B5B7F">
+  <style>
+    /* ============================================
+       Design Tokens（LP共通）
+       ============================================ */
+    :root {
+      --c-cyan-light: #35B7D1;
+      --c-cyan: #1BA9D6;
+      --c-navy: #0B5B7F;
+      --c-navy-deep: #073B52;
+      --c-tint: #EEF8FB;
+      --c-tint-warm: #FFF9F5;
+      --c-bg: #FAFCFD;
+      --c-white: #FFFFFF;
+      --c-text: #1A2B35;
+      --c-text-sub: #4A6572;
+      --c-text-muted: #7A929E;
+      --c-border: #D6E4EA;
+      --c-accent: #FF8A65;
+      --c-accent-soft: #FFF0EB;
+
+      --ff: -apple-system, BlinkMacSystemFont, 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Noto Sans JP', Meiryo, sans-serif;
+      --fs-hero: clamp(1.75rem, 4vw, 2.5rem);
+      --fs-section: clamp(1.25rem, 3vw, 1.625rem);
+      --fs-lead: clamp(1.063rem, 2.5vw, 1.25rem);
+      --fs-body: 1rem;
+      --fs-sm: 0.875rem;
+      --fs-xs: 0.8125rem;
+
+      --lh-tight: 1.35;
+      --lh-normal: 1.7;
+      --lh-relaxed: 1.85;
+
+      --w-max: 960px;
+      --w-narrow: 720px;
+
+      --ease: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+
+    /* ============================================
+       Reset
+       ============================================ */
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--ff);
+      color: var(--c-text);
+      line-height: var(--lh-normal);
+      background: var(--c-white);
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+    a { color: inherit; }
+
+    /* ============================================
+       Utility
+       ============================================ */
+    .wrap {
+      width: 100%;
+      max-width: var(--w-max);
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+    .wrap--narrow { max-width: var(--w-narrow); }
+
+    /* ============================================
+       Header
+       ============================================ */
+    .header {
+      background: var(--c-white);
+      border-bottom: 1px solid var(--c-border);
+      padding: 16px 0;
+    }
+    .header .wrap {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .header__brand {
+      font-size: var(--fs-lead);
+      font-weight: 700;
+      color: var(--c-navy-deep);
+      text-decoration: none;
+    }
+    .header__nav {
+      display: flex;
+      gap: 20px;
+    }
+    .header__link {
+      font-size: var(--fs-sm);
+      color: var(--c-text-sub);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .header__link:hover { color: var(--c-cyan); }
+
+    /* ============================================
+       Page Hero
+       ============================================ */
+    .page-hero {
+      padding: 56px 0 40px;
+      background: var(--c-tint);
+      border-bottom: 1px solid var(--c-border);
+    }
+    .page-hero__title {
+      font-size: var(--fs-hero);
+      font-weight: 800;
+      color: var(--c-navy-deep);
+      line-height: var(--lh-tight);
+      margin-bottom: 8px;
+    }
+    .page-hero__meta {
+      font-size: var(--fs-sm);
+      color: var(--c-text-muted);
+    }
+
+    /* ============================================
+       Policy Content
+       ============================================ */
+    .policy {
+      padding: 56px 0 80px;
+    }
+    .policy__intro {
+      font-size: var(--fs-lead);
+      color: var(--c-text-sub);
+      line-height: var(--lh-relaxed);
+      margin-bottom: 48px;
+      padding-bottom: 32px;
+      border-bottom: 1px solid var(--c-border);
+    }
+
+    .policy__toc {
+      background: var(--c-tint);
+      border-radius: 12px;
+      padding: 24px 28px;
+      margin-bottom: 48px;
+    }
+    .policy__toc-title {
+      font-size: var(--fs-sm);
+      font-weight: 700;
+      color: var(--c-navy);
+      margin-bottom: 12px;
+      letter-spacing: 0.04em;
+    }
+    .policy__toc-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .policy__toc-list a {
+      font-size: var(--fs-sm);
+      color: var(--c-text-sub);
+      text-decoration: none;
+      transition: color 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .policy__toc-list a::before {
+      content: '';
+      display: inline-block;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--c-cyan);
+      flex-shrink: 0;
+    }
+    .policy__toc-list a:hover { color: var(--c-cyan); }
+
+    .policy section {
+      margin-bottom: 40px;
+    }
+    .policy section:last-of-type {
+      margin-bottom: 0;
+    }
+    .policy h2 {
+      font-size: var(--fs-section);
+      font-weight: 700;
+      color: var(--c-text);
+      margin-bottom: 16px;
+      padding-bottom: 8px;
+      border-bottom: 2px solid var(--c-tint);
+      line-height: var(--lh-tight);
+    }
+    .policy h3 {
+      font-size: var(--fs-lead);
+      font-weight: 600;
+      color: var(--c-text);
+      margin-top: 24px;
+      margin-bottom: 10px;
+    }
+    .policy p {
+      font-size: var(--fs-body);
+      color: var(--c-text-sub);
+      line-height: var(--lh-relaxed);
+      margin-bottom: 14px;
+    }
+    .policy p:last-child { margin-bottom: 0; }
+    .policy ul, .policy ol {
+      margin: 12px 0 16px 0;
+      padding-left: 24px;
+    }
+    .policy li {
+      font-size: var(--fs-body);
+      color: var(--c-text-sub);
+      line-height: var(--lh-relaxed);
+      margin-bottom: 6px;
+    }
+
+    .policy__highlight {
+      background: var(--c-tint);
+      border-left: 3px solid var(--c-cyan);
+      border-radius: 0 8px 8px 0;
+      padding: 16px 20px;
+      margin: 20px 0;
+    }
+    .policy__highlight p {
+      color: var(--c-text);
+      margin-bottom: 0;
+    }
+
+    .policy__contact-box {
+      background: var(--c-tint-warm);
+      border-radius: 12px;
+      padding: 24px 28px;
+      margin-top: 24px;
+    }
+    .policy__contact-box p {
+      color: var(--c-text);
+      margin-bottom: 8px;
+    }
+    .policy__contact-box p:last-child { margin-bottom: 0; }
+    .policy__contact-link {
+      color: var(--c-cyan);
+      font-weight: 600;
+      text-decoration: none;
+    }
+    .policy__contact-link:hover { text-decoration: underline; }
+
+    /* ============================================
+       Footer（LP共通）
+       ============================================ */
+    .footer {
+      background: var(--c-navy-deep);
+      padding: 40px 0 32px;
+    }
+    .footer .wrap {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .footer__nav {
+      display: flex;
+      gap: 24px;
+    }
+    .footer__link {
+      color: rgba(255,255,255,0.6);
+      text-decoration: none;
+      font-size: var(--fs-sm);
+      transition: color 0.2s;
+    }
+    .footer__link:hover { color: var(--c-cyan-light); }
+    .footer__copy {
+      color: rgba(255,255,255,0.35);
+      font-size: var(--fs-xs);
+    }
+
+    /* ============================================
+       Responsive
+       ============================================ */
+    @media (max-width: 768px) {
+      .page-hero { padding: 40px 0 28px; }
+      .policy { padding: 40px 0 56px; }
+      .policy__toc { padding: 20px 22px; }
+
+      .header .wrap { flex-direction: column; gap: 10px; }
+      .header__nav { gap: 16px; }
+
+      .footer .wrap {
+        flex-direction: column;
+        gap: 16px;
+        text-align: center;
+      }
+      .footer__nav { flex-direction: column; gap: 12px; }
+    }
+
+    @media (max-width: 480px) {
+      .wrap { padding: 0 16px; }
+      .page-hero { padding: 32px 0 20px; }
+      .policy { padding: 32px 0 40px; }
+      .policy__highlight { padding: 14px 16px; }
+      .policy__contact-box { padding: 20px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ==================== Header ==================== -->
+  <header class="header">
+    <div class="wrap">
+      <a href="./" class="header__brand">もちものポケット</a>
+      <nav class="header__nav" aria-label="ヘッダーナビゲーション">
+        <a href="./" class="header__link">トップ</a>
+        <a href="./support" class="header__link">サポート</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ==================== Page Hero ==================== -->
+  <section class="page-hero">
+    <div class="wrap wrap--narrow">
+      <h1 class="page-hero__title">利用規約</h1>
+      <p class="page-hero__meta">最終更新日: 2026年2月17日</p>
+    </div>
+  </section>
+
+  <!-- ==================== Terms Content ==================== -->
+  <main class="policy">
+    <div class="wrap wrap--narrow">
+
+      <p class="policy__intro">
+        本利用規約（以下「本規約」）は、根本卓弥（以下「開発者」）が提供するアプリケーション「もちものポケット」（以下「本アプリ」）の利用条件を定めるものです。本アプリをご利用になる前に、本規約をよくお読みください。本アプリをご利用いただいた場合、本規約に同意したものとみなします。
+      </p>
+
+      <!-- Table of Contents -->
+      <nav class="policy__toc" aria-label="目次">
+        <div class="policy__toc-title">目次</div>
+        <ol class="policy__toc-list">
+          <li><a href="#service">サービスの定義</a></li>
+          <li><a href="#account">アカウントと認証</a></li>
+          <li><a href="#family-group">家族グループ</a></li>
+          <li><a href="#user-responsibility">ユーザーの責任</a></li>
+          <li><a href="#prohibited">禁止事項</a></li>
+          <li><a href="#data-handling">データの取り扱い</a></li>
+          <li><a href="#service-changes">サービスの変更・終了</a></li>
+          <li><a href="#disclaimer">免責事項</a></li>
+          <li><a href="#account-deletion">アカウント削除</a></li>
+          <li><a href="#law">準拠法・管轄</a></li>
+          <li><a href="#contact">お問い合わせ</a></li>
+        </ol>
+      </nav>
+
+      <!-- 1. Service Definition -->
+      <section id="service">
+        <h2>1. サービスの定義</h2>
+        <p>
+          「もちものポケット」とは、子育て家庭の外出準備をサポートする持ち物チェックアプリです。シーン別の持ち物リストを作成・管理し、お子さまの年齢や家族構成に合わせたカスタマイズ機能を提供します。
+        </p>
+        <p>
+          本アプリが提供する主な機能は以下のとおりです。
+        </p>
+        <ul>
+          <li>シーン別持ち物チェックリストの作成・管理</li>
+          <li>家族メンバーの登録と持ち物の個別管理</li>
+          <li>出発前リマインダー通知</li>
+          <li>家族グループによる持ち物情報の共有</li>
+          <li>過去のチェックリスト履歴の閲覧</li>
+        </ul>
+      </section>
+
+      <!-- 2. Account & Authentication -->
+      <section id="account">
+        <h2>2. アカウントと認証</h2>
+        <p>
+          本アプリの家族グループ機能を利用するにはアカウントが必要です。アカウントの登録・認証には以下の方式を利用します。
+        </p>
+        <ul>
+          <li><strong>Sign in with Apple</strong>（Apple ID による認証）</li>
+          <li><strong>Google Sign-In</strong>（Googleアカウントによる認証）</li>
+        </ul>
+        <div class="policy__highlight">
+          <p>
+            1人につき1アカウントのみご利用いただけます。複数アカウントの作成・利用は禁止します。
+          </p>
+        </div>
+        <p>
+          アカウント情報の管理はご自身の責任で行ってください。アカウントへの不正アクセスが疑われる場合は、速やかに開発者までご連絡ください。
+        </p>
+      </section>
+
+      <!-- 3. Family Group -->
+      <section id="family-group">
+        <h2>3. 家族グループ</h2>
+        <p>
+          家族グループ機能を使用すると、家族間で持ち物情報を共有できます。
+        </p>
+        <h3>グループへの参加</h3>
+        <p>
+          家族グループへの参加は<strong>招待制</strong>です。既存メンバーからの招待を受けた場合にのみ、グループに参加できます。招待なしでの参加はできません。
+        </p>
+        <h3>データ共有の範囲</h3>
+        <ul>
+          <li>同一グループのメンバーは、グループ内で共有されたチェックリスト・持ち物情報を閲覧・編集できます</li>
+          <li>共有範囲はグループ内に限定されます。グループ外の第三者がデータにアクセスすることはありません</li>
+          <li>グループを脱退した場合、脱退後に追加されたグループのデータは閲覧できなくなります</li>
+        </ul>
+      </section>
+
+      <!-- 4. User Responsibility -->
+      <section id="user-responsibility">
+        <h2>4. ユーザーの責任</h2>
+        <p>
+          ご利用にあたり、ユーザーは以下の事項を遵守するものとします。
+        </p>
+        <h3>正確な情報の入力</h3>
+        <p>
+          本アプリに登録する情報（家族構成、持ち物リスト等）は、正確かつ最新の状態を保つよう努めてください。虚偽・不正確な情報の入力による不利益は、ユーザーご自身の責任となります。
+        </p>
+        <h3>共有データの管理</h3>
+        <p>
+          家族グループを通じて共有するデータの内容については、グループメンバー全員が適切に管理する責任を負います。共有データに個人情報や機密情報が含まれる場合は、グループメンバーの同意を得た上で共有してください。
+        </p>
+      </section>
+
+      <!-- 5. Prohibited Acts -->
+      <section id="prohibited">
+        <h2>5. 禁止事項</h2>
+        <p>
+          ユーザーは本アプリの利用において、以下の行為を行ってはなりません。
+        </p>
+        <ul>
+          <li>本アプリへの不正アクセス、またはそれを試みる行為</li>
+          <li>他人のアカウントを無断で使用する行為</li>
+          <li>複数のアカウントを作成・保有する行為</li>
+          <li>本アプリのシステムやサーバーに過大な負荷をかける行為</li>
+          <li>本アプリのリバースエンジニアリング、逆コンパイル、または解析を行う行為</li>
+          <li>本アプリを商業目的で無断で利用・転用する行為</li>
+          <li>他のユーザーに対する迷惑行為、嫌がらせ、または名誉毀損となる行為</li>
+          <li>法令または公序良俗に違反する行為</li>
+          <li>その他、開発者が不適切と判断する行為</li>
+        </ul>
+      </section>
+
+      <!-- 6. Data Handling -->
+      <section id="data-handling">
+        <h2>6. データの取り扱い</h2>
+        <p>
+          本アプリにおけるユーザーの個人情報・データの取り扱いについては、別途定める<a href="./privacy-policy" class="policy__contact-link">プライバシーポリシー</a>に従います。
+        </p>
+        <p>
+          本アプリをご利用いただくことで、プライバシーポリシーに定める方法でデータが取り扱われることに同意したものとみなします。
+        </p>
+      </section>
+
+      <!-- 7. Service Changes & Termination -->
+      <section id="service-changes">
+        <h2>7. サービスの変更・終了</h2>
+        <p>
+          開発者は、ユーザーへの事前通知なく、本アプリの機能の追加・変更・削除を行う場合があります。また、以下の場合には本アプリのサービスを停止・終了することがあります。
+        </p>
+        <ul>
+          <li>システムのメンテナンスや更新が必要な場合</li>
+          <li>天災・停電・その他の不可抗力によりサービスの提供が困難になった場合</li>
+          <li>開発者がサービスの継続を困難と判断した場合</li>
+        </ul>
+        <p>
+          サービスの終了にあたっては、可能な限りアプリ内または本ウェブサイト上での告知を行います。ただし、告知なしにサービスを終了する場合もあります。サービスの変更・終了によってユーザーに生じた損害について、開発者は責任を負いません。
+        </p>
+      </section>
+
+      <!-- 8. Disclaimer -->
+      <section id="disclaimer">
+        <h2>8. 免責事項</h2>
+        <p>
+          本アプリの利用にあたり、開発者は以下の事項について一切の責任を負いません。
+        </p>
+        <ul>
+          <li>本アプリに登録した持ち物リストの過不足による損害（持ち物の忘れ物・紛失等）</li>
+          <li>本アプリの利用または利用不能により生じた直接的・間接的損害</li>
+          <li>ユーザーが入力した情報の誤りに起因するトラブル</li>
+          <li>家族グループ内でのメンバー間のトラブルや紛争</li>
+          <li>第三者サービス（Apple ID・Google アカウント等）の障害・仕様変更に起因する問題</li>
+          <li>通信障害・端末障害等によるデータの消失・破損</li>
+        </ul>
+        <div class="policy__highlight">
+          <p>
+            本アプリは持ち物管理をサポートするためのツールです。持ち物の最終確認は必ずご自身でお願いします。
+          </p>
+        </div>
+      </section>
+
+      <!-- 9. Account Deletion -->
+      <section id="account-deletion">
+        <h2>9. アカウント削除</h2>
+        <p>
+          ユーザーはいつでもアカウントを削除できます。アカウントを削除する方法は以下のとおりです。
+        </p>
+        <ul>
+          <li><strong>アプリ内からの削除:</strong> 設定画面の「アカウント削除」からお手続きいただけます</li>
+          <li><strong>お問い合わせからの申請:</strong> 下記お問い合わせ先にご連絡いただくことでも対応いたします</li>
+        </ul>
+        <p>
+          アカウントを削除すると、そのアカウントに紐づくすべてのデータ（家族グループの共有データを含む）が削除され、復元できなくなります。アカウント削除前に必要なデータを確認・保存してください。
+        </p>
+        <p>
+          家族グループのオーナーがアカウントを削除した場合、グループ自体が解散となり、メンバー全員がグループの共有データにアクセスできなくなります。
+        </p>
+      </section>
+
+      <!-- 10. Governing Law -->
+      <section id="law">
+        <h2>10. 準拠法・管轄</h2>
+        <p>
+          本規約は日本法に準拠し、日本法に従って解釈されるものとします。本規約に関する紛争については、東京地方裁判所を第一審の専属的合意管轄裁判所とします。
+        </p>
+      </section>
+
+      <!-- 11. Contact -->
+      <section id="contact">
+        <h2>11. お問い合わせ</h2>
+        <p>
+          本規約に関するご質問やお問い合わせは、以下の連絡先までお気軽にご連絡ください。
+        </p>
+        <div class="policy__contact-box">
+          <p><strong>開発者:</strong> 根本卓弥</p>
+          <p><strong>メール:</strong> <a href="mailto:t.nemoto.x@gmail.com" class="policy__contact-link">t.nemoto.x@gmail.com</a></p>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- ==================== Footer ==================== -->
+  <footer class="footer">
+    <div class="wrap">
+      <nav class="footer__nav" aria-label="フッターナビゲーション">
+        <a href="./" class="footer__link">トップページ</a>
+        <a href="./support" class="footer__link">サポート・お問い合わせ</a>
+      </nav>
+      <p class="footer__copy">&copy; 2026 Takuya Nemoto</p>
+    </div>
+  </footer>
+
+</body>
+</html>

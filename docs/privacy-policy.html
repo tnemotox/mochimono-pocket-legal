@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>プライバシーポリシー - もちものポケット</title>
-  <meta name="description" content="もちものポケットのプライバシーポリシー。完全オフライン動作で、お子さまの情報は端末内にのみ保存されます。">
+  <meta name="description" content="もちものポケットのプライバシーポリシー。Firebase Authentication・Firestoreを使用したクラウド対応アプリのプライバシーに関する説明です。">
   <meta name="theme-color" content="#0B5B7F">
   <style>
     /* ============================================
@@ -344,7 +344,7 @@
   <section class="page-hero">
     <div class="wrap wrap--narrow">
       <h1 class="page-hero__title">プライバシーポリシー</h1>
-      <p class="page-hero__meta">最終更新日: 2026年2月13日</p>
+      <p class="page-hero__meta">最終更新日: 2026年2月17日</p>
     </div>
   </section>
 
@@ -353,7 +353,7 @@
     <div class="wrap wrap--narrow">
 
       <p class="policy__intro">
-        もちものポケット（以下「本アプリ」）は、子育て家庭の毎日をサポートする持ち物チェックアプリです。本プライバシーポリシーでは、本アプリにおけるお客さまの情報の取り扱いについて、わかりやすくご説明します。
+        もちものポケット（以下「本アプリ」）は、子育て家庭の毎日をサポートする持ち物チェックアプリです。本アプリはFirebase Authentication（Apple/Google Sign-In）とGoogle Firebase Firestoreを使用し、家族間でのリアルタイム共有機能を提供します。本プライバシーポリシーでは、本アプリにおけるお客さまの情報の取り扱いについて、わかりやすくご説明します。
       </p>
 
       <!-- Table of Contents -->
@@ -361,8 +361,8 @@
         <div class="policy__toc-title">目次</div>
         <ol class="policy__toc-list">
           <li><a href="#developer">開発者情報</a></li>
-          <li><a href="#data-collection">データの収集について</a></li>
-          <li><a href="#data-storage">端末内に保存されるデータ</a></li>
+          <li><a href="#data-collection">収集する情報について</a></li>
+          <li><a href="#data-storage">収集・保存するデータ</a></li>
           <li><a href="#data-safety">データの安全性について</a></li>
           <li><a href="#third-party">第三者提供について</a></li>
           <li><a href="#ads-analytics">広告・アナリティクスSDKについて</a></li>
@@ -388,22 +388,29 @@
 
       <!-- 2. Data Collection -->
       <section id="data-collection">
-        <h2>2. データの収集について</h2>
+        <h2>2. 収集する情報について</h2>
+        <h3>認証情報</h3>
         <p>
-          本アプリは<strong>完全オフライン</strong>で動作します。インターネット通信を一切行わず、外部サーバーへのデータ送信は行いません。
+          本アプリはFirebase Authentication（Apple Sign-In / Google Sign-In）を使用してアカウントを管理します。認証時に以下の情報を取得します。
         </p>
+        <ul>
+          <li>メールアドレス</li>
+          <li>表示名（Apple/Googleアカウントに登録された名前）</li>
+        </ul>
+        <p>取得した情報はFirebase Authenticationにより管理されます。</p>
+        <h3>収集しない情報</h3>
         <div class="policy__highlight">
           <p>
-            本アプリは、個人を特定できる情報・位置情報・端末識別情報・利用状況のアナリティクスデータを<strong>一切収集しません</strong>。
+            本アプリは、位置情報・端末識別情報・利用状況のアナリティクスデータを<strong>一切収集しません</strong>。
           </p>
         </div>
       </section>
 
       <!-- 3. Data Storage -->
       <section id="data-storage">
-        <h2>3. 端末内に保存されるデータ</h2>
+        <h2>3. 収集・保存するデータ</h2>
         <p>
-          本アプリは以下のデータをお使いの端末内にのみ保存します。これらのデータはローカルデータベース（SQLite / Drift）に格納され、端末の外部に送信されることは一切ありません。
+          本アプリは以下のデータをGoogle Firebase Firestoreに保存します。保存リージョンはasia-northeast1（東京）です。
         </p>
 
         <table class="policy__data-table">
@@ -411,52 +418,64 @@
             <tr>
               <th>データの種類</th>
               <th>保存される内容</th>
+              <th>保存先</th>
             </tr>
           </thead>
           <tbody>
             <tr>
+              <td>ユーザー情報</td>
+              <td>表示名、メールアドレス（認証情報）</td>
+              <td>Firebase Firestore</td>
+            </tr>
+            <tr>
               <td>家族構成</td>
-              <td>名前、生年月日、年齢区分、本人フラグ（isSelf）</td>
+              <td>名前、生年月日、年齢区分</td>
+              <td>Firebase Firestore</td>
             </tr>
             <tr>
               <td>チェックリスト</td>
               <td>シーン名、出発日、持ち物リスト、チェック状態</td>
+              <td>Firebase Firestore</td>
             </tr>
             <tr>
               <td>我が家ルール</td>
               <td>カスタム持ち物、条件設定（追加・除外ルール）</td>
-            </tr>
-            <tr>
-              <td>履歴</td>
-              <td>過去のチェックリスト記録</td>
+              <td>Firebase Firestore</td>
             </tr>
             <tr>
               <td>通知設定</td>
               <td>通知時刻、有効/無効、チェックリストごとの設定</td>
+              <td>Firebase Firestore</td>
             </tr>
             <tr>
               <td>アプリ設定</td>
-              <td>デフォルト通知時刻等（SharedPreferences）</td>
+              <td>デフォルト通知時刻等</td>
+              <td>端末内（ローカル）</td>
             </tr>
           </tbody>
         </table>
+
+        <h3>家族共有について</h3>
+        <p>
+          本アプリは招待コードによるグループ機能を提供します。グループに参加したメンバー間で、上記のデータがFirestore経由でリアルタイムに同期されます。データの共有相手は、お客さまが明示的に招待したメンバーのみです。
+        </p>
       </section>
 
       <!-- 4. Data Safety -->
       <section id="data-safety">
         <h2>4. データの安全性について</h2>
         <p>
-          本アプリのデータはすべて、お客さまの端末内のローカルデータベース（SQLite / Drift）に保存されます。
+          本アプリのデータはGoogle Firebase Firestoreに保存されます。Firestoreはハイレベルなセキュリティ基準に準拠したGoogleのクラウドサービスです。
         </p>
         <ul>
-          <li>データはお客さまの端末から外部に送信されることはありません</li>
-          <li>クラウドへの同期やバックアップ機能はありません</li>
-          <li>アカウント登録やログインは不要です</li>
-          <li>端末のセキュリティ機能（パスコード、生体認証など）がそのままデータの保護に役立ちます</li>
+          <li>データへのアクセスはFirebase Authentication認証済みユーザーに限定されます</li>
+          <li>同じグループのメンバー以外は他のお客さまのデータにアクセスできません</li>
+          <li>保存リージョンはasia-northeast1（東京）です</li>
+          <li>通信はすべてHTTPS（TLS）で暗号化されます</li>
         </ul>
         <div class="policy__highlight">
           <p>
-            お子さまの名前や生年月日など、ご家族の大切な情報が端末の外に出ることはありません。安心してご利用ください。
+            ご家族の大切な情報はFirestoreのセキュリティルールにより、同じグループのメンバーのみがアクセスできるよう保護されています。
           </p>
         </div>
       </section>
@@ -465,8 +484,39 @@
       <section id="third-party">
         <h2>5. 第三者提供について</h2>
         <p>
-          本アプリはデータを外部に送信しないため、第三者への情報提供は一切行いません。データの売却、共有、貸与は行っておらず、今後も行う予定はありません。
+          本アプリは以下の第三者サービスを利用します。これ以外の第三者へのデータの売却・共有・貸与は行っておらず、今後も行う予定はありません。
         </p>
+        <table class="policy__data-table">
+          <thead>
+            <tr>
+              <th>サービス</th>
+              <th>提供元</th>
+              <th>利用目的</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Firebase Authentication</td>
+              <td>Google LLC</td>
+              <td>Apple/Google Sign-Inによるユーザー認証管理</td>
+            </tr>
+            <tr>
+              <td>Firebase Firestore</td>
+              <td>Google LLC</td>
+              <td>ユーザーデータのクラウド保存・家族間リアルタイム同期</td>
+            </tr>
+            <tr>
+              <td>Apple Sign-In</td>
+              <td>Apple Inc.</td>
+              <td>Apple IDによる認証基盤</td>
+            </tr>
+            <tr>
+              <td>Google Sign-In</td>
+              <td>Google LLC</td>
+              <td>Googleアカウントによる認証基盤</td>
+            </tr>
+          </tbody>
+        </table>
       </section>
 
       <!-- 6. Ads & Analytics -->
@@ -474,6 +524,9 @@
         <h2>6. 広告・アナリティクスSDKについて</h2>
         <p>
           本アプリには、広告SDK及びアナリティクスSDK（Google Analytics、Firebase Analytics等）は一切導入されていません。お客さまの利用状況を追跡・分析することはありません。
+        </p>
+        <p>
+          なお、Firebase AuthenticationおよびFirestoreはデータ保存・認証管理を目的として使用しており、アナリティクス目的での利用ではありません。
         </p>
       </section>
 
@@ -521,11 +574,13 @@
       <section id="data-deletion">
         <h2>10. データの削除</h2>
         <p>
-          端末内に保存されたすべてのデータは、以下の方法で削除できます。
+          保存されたデータは、以下の方法で削除できます。
         </p>
         <ul>
-          <li><strong>アプリのアンインストール:</strong> アプリを端末から削除すると、保存されたすべてのデータが完全に削除されます</li>
-          <li><strong>アプリ内での操作:</strong> 家族情報やチェックリスト等のデータは、アプリ内の設定画面から個別に削除することも可能です</li>
+          <li><strong>アカウント削除:</strong> アプリ内の「アカウント削除」機能を使用すると、Firebase Firestoreに保存されたすべてのデータおよびFirebase Authenticationアカウントが完全に削除されます</li>
+          <li><strong>グループ脱退:</strong> グループから脱退すると、そのグループとの紐付けが解除されます。他のメンバーからお客さまのデータへのアクセスができなくなります</li>
+          <li><strong>アプリのアンインストール:</strong> アプリを端末から削除すると、端末内に保存されたローカルデータが削除されます。クラウドデータを削除するには、アンインストール前に「アカウント削除」を実施してください</li>
+          <li><strong>個別削除:</strong> 家族情報やチェックリスト等のデータは、アプリ内の設定画面から個別に削除することも可能です</li>
         </ul>
       </section>
 
@@ -533,12 +588,13 @@
       <section id="children">
         <h2>11. お子さまのプライバシー（COPPA対応）</h2>
         <p>
-          本アプリは子育て家庭を対象としていますが、13歳未満のお子さまから意図的に個人情報を収集することはありません。
+          本アプリは子育て家庭を対象としていますが、13歳未満のお子さまがアカウントを直接作成することは想定していません。
         </p>
         <ul>
-          <li>本アプリが保存する家族情報（お子さまの名前・生年月日等）は、保護者の方が入力し、端末内にのみ保存されます</li>
-          <li>これらの情報が外部に送信されることはありません</li>
-          <li>お子さまが直接操作する場合も、情報は端末の外に出ることはなく安全です</li>
+          <li>アカウント作成（Apple/Google Sign-In）は保護者の方が行うことを前提としています</li>
+          <li>本アプリが保存する家族情報（お子さまの名前・生年月日等）は、保護者の方が入力し、Firebase Firestoreにクラウド保存されます</li>
+          <li>保存されたデータは、同じグループのメンバー（ご家族）のみがアクセスできます</li>
+          <li>13歳未満のお子さまの情報を意図的に収集することはありません</li>
         </ul>
         <div class="policy__highlight">
           <p>
