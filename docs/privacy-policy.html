@@ -353,7 +353,7 @@
     <div class="wrap wrap--narrow">
 
       <p class="policy__intro">
-        もちものポケット（以下「本アプリ」）は、子育て家庭の毎日をサポートする持ち物チェックアプリです。本アプリはFirebase Authentication（Apple/Google Sign-In）とGoogle Firebase Firestoreを使用し、家族間でのリアルタイム共有機能を提供します。本プライバシーポリシーでは、本アプリにおけるお客さまの情報の取り扱いについて、わかりやすくご説明します。
+        もちものポケット（以下「本アプリ」）は、子育て家庭の毎日をサポートする持ち物チェックアプリです。Apple IDやGoogleアカウントでサインインし、家族みんなでリアルタイムに情報を共有できます。本プライバシーポリシーでは、本アプリにおけるお客さまの情報の取り扱いについて、わかりやすくご説明します。
       </p>
 
       <!-- Table of Contents -->
@@ -391,13 +391,13 @@
         <h2>2. 収集する情報について</h2>
         <h3>認証情報</h3>
         <p>
-          本アプリはFirebase Authentication（Apple Sign-In / Google Sign-In）を使用してアカウントを管理します。認証時に以下の情報を取得します。
+          本アプリはApple IDまたはGoogleアカウントでサインインします。サインイン時に以下の情報を取得します。
         </p>
         <ul>
           <li>メールアドレス</li>
           <li>表示名（Apple/Googleアカウントに登録された名前）</li>
         </ul>
-        <p>取得した情報はFirebase Authenticationにより管理されます。</p>
+        <p>取得した情報はGoogleの認証サービス（Firebase Authentication）により安全に管理されます。</p>
         <h3>収集しない情報</h3>
         <div class="policy__highlight">
           <p>
@@ -410,7 +410,7 @@
       <section id="data-storage">
         <h2>3. 収集・保存するデータ</h2>
         <p>
-          本アプリは以下のデータをGoogle Firebase Firestoreに保存します。保存リージョンはasia-northeast1（東京）です。
+          本アプリは以下のデータをGoogleのクラウドサービス（Firebase Firestore）を通じて日本国内のサーバーに保存します。
         </p>
 
         <table class="policy__data-table">
@@ -425,27 +425,27 @@
             <tr>
               <td>ユーザー情報</td>
               <td>表示名、メールアドレス（認証情報）</td>
-              <td>Firebase Firestore</td>
+              <td>クラウド</td>
             </tr>
             <tr>
               <td>家族構成</td>
               <td>名前、生年月日、年齢区分</td>
-              <td>Firebase Firestore</td>
+              <td>クラウド</td>
             </tr>
             <tr>
               <td>チェックリスト</td>
               <td>シーン名、出発日、持ち物リスト、チェック状態</td>
-              <td>Firebase Firestore</td>
+              <td>クラウド</td>
             </tr>
             <tr>
               <td>我が家ルール</td>
               <td>カスタム持ち物、条件設定（追加・除外ルール）</td>
-              <td>Firebase Firestore</td>
+              <td>クラウド</td>
             </tr>
             <tr>
               <td>通知設定</td>
               <td>通知時刻、有効/無効、チェックリストごとの設定</td>
-              <td>Firebase Firestore</td>
+              <td>クラウド</td>
             </tr>
             <tr>
               <td>アプリ設定</td>
@@ -465,17 +465,17 @@
       <section id="data-safety">
         <h2>4. データの安全性について</h2>
         <p>
-          本アプリのデータはGoogle Firebase Firestoreに保存されます。Firestoreはハイレベルなセキュリティ基準に準拠したGoogleのクラウドサービスです。
+          本アプリのデータはGoogleのクラウドサービスに保存され、高いセキュリティ基準で保護されています。
         </p>
         <ul>
-          <li>データへのアクセスはFirebase Authentication認証済みユーザーに限定されます</li>
+          <li>データへのアクセスはサインイン済みのユーザーに限定されます</li>
           <li>同じグループのメンバー以外は他のお客さまのデータにアクセスできません</li>
-          <li>保存リージョンはasia-northeast1（東京）です</li>
-          <li>通信はすべてHTTPS（TLS）で暗号化されます</li>
+          <li>データは日本国内のサーバーに保存されます</li>
+          <li>通信はすべて暗号化されています</li>
         </ul>
         <div class="policy__highlight">
           <p>
-            ご家族の大切な情報はFirestoreのセキュリティルールにより、同じグループのメンバーのみがアクセスできるよう保護されています。
+            アクセス制限により、同じグループのメンバーのみがアクセスできるよう保護されています。
           </p>
         </div>
       </section>
@@ -496,24 +496,14 @@
           </thead>
           <tbody>
             <tr>
-              <td>Firebase Authentication</td>
+              <td>Firebase（認証・データ保存）</td>
               <td>Google LLC</td>
-              <td>Apple/Google Sign-Inによるユーザー認証管理</td>
-            </tr>
-            <tr>
-              <td>Firebase Firestore</td>
-              <td>Google LLC</td>
-              <td>ユーザーデータのクラウド保存・家族間リアルタイム同期</td>
+              <td>サインイン管理、データのクラウド保存・家族間リアルタイム同期</td>
             </tr>
             <tr>
               <td>Apple Sign-In</td>
               <td>Apple Inc.</td>
-              <td>Apple IDによる認証基盤</td>
-            </tr>
-            <tr>
-              <td>Google Sign-In</td>
-              <td>Google LLC</td>
-              <td>Googleアカウントによる認証基盤</td>
+              <td>Apple IDによるサインイン</td>
             </tr>
           </tbody>
         </table>
@@ -526,7 +516,7 @@
           本アプリには、広告SDK及びアナリティクスSDK（Google Analytics、Firebase Analytics等）は一切導入されていません。お客さまの利用状況を追跡・分析することはありません。
         </p>
         <p>
-          なお、Firebase AuthenticationおよびFirestoreはデータ保存・認証管理を目的として使用しており、アナリティクス目的での利用ではありません。
+          なお、Googleのサービス（Firebase）はデータ保存・サインイン管理のみに使用しており、利用状況の分析目的では使用していません。
         </p>
       </section>
 
