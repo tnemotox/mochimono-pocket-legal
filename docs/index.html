@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>もちものポケット - 子育て家庭の忘れ物ゼロへ</title>
-  <meta name="description" content="シーン別テンプレートと我が家ルール学習で、使うほど家庭にフィットする持ち物チェックアプリ。完全無料・広告なし・オフライン対応。">
+  <title>もちものポケット - お出かけの忘れ物チェックリスト</title>
+  <meta name="description" content="シーンを選ぶだけでお子さんの年齢にぴったりの持ち物リストを自動作成。家族みんなでリアルタイム共有できるお出かけ準備アプリ。">
   <meta name="theme-color" content="#0B5B7F">
   <style>
     /* ============================================
@@ -271,7 +271,7 @@
     }
 
     /* ============================================
-       02. Story — relatable morning scene
+       02. Story — relatable weekend scene
        ============================================ */
     .story {
       padding: 100px 0 60px;
@@ -337,7 +337,7 @@
     }
 
     /* ============================================
-       04. Features — staggered 1-column
+       04. Features — staggered 1-column, alternating
        ============================================ */
     .features {
       padding: 120px 0 80px;
@@ -376,23 +376,6 @@
       margin-bottom: 80px;
     }
     .feat:last-child { margin-bottom: 0; }
-
-    /* Feature 3: full-width single-column variant (R-001) */
-    .feat:nth-child(4) {
-      grid-template-columns: 1fr;
-      text-align: center;
-      max-width: 640px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-    .feat:nth-child(4) .feat__desc {
-      max-width: 480px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-    .feat:nth-child(4) .feat__visual {
-      order: 1;
-    }
     .feat--reverse .feat__visual { order: -1; }
 
     .feat__text {}
@@ -442,6 +425,80 @@
       flex-direction: column;
     }
 
+    /* Family sharing mockup */
+    .mock-share__header {
+      background: var(--c-navy);
+      padding: 28px 14px 12px;
+      color: var(--c-white);
+    }
+    .mock-share__label {
+      font-size: 9px;
+      opacity: 0.7;
+      margin-bottom: 3px;
+    }
+    .mock-share__title {
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+    .mock-share__members {
+      display: flex;
+      gap: 4px;
+    }
+    .mock-share__avatar {
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 9px;
+      font-weight: 700;
+      color: var(--c-white);
+    }
+    .mock-share__body { padding: 10px; flex: 1; }
+    .mock-share__item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--c-white);
+      border-radius: 8px;
+      padding: 8px 10px;
+      margin-bottom: 5px;
+      font-size: 11px;
+      color: var(--c-text);
+    }
+    .mock-share__check {
+      width: 16px;
+      height: 16px;
+      border-radius: 4px;
+      border: 2px solid var(--c-border);
+      flex-shrink: 0;
+    }
+    .mock-share__check--done {
+      background: var(--c-cyan);
+      border-color: var(--c-cyan);
+      position: relative;
+    }
+    .mock-share__check--done::after {
+      content: '';
+      position: absolute;
+      left: 3px;
+      top: 0px;
+      width: 6px;
+      height: 10px;
+      border: solid var(--c-white);
+      border-width: 0 2px 2px 0;
+      transform: rotate(45deg);
+    }
+    .mock-share__name { flex: 1; }
+    .mock-share__who {
+      font-size: 9px;
+      color: var(--c-cyan);
+      font-weight: 600;
+      white-space: nowrap;
+    }
+
     /* Wizard screen mockup */
     .mock-wizard__header {
       background: var(--c-navy);
@@ -475,34 +532,6 @@
       font-size: 16px;
       line-height: 1;
     }
-
-    /* Rule learning mockup */
-    .mock-rules__header {
-      background: var(--c-cyan);
-      padding: 28px 14px 12px;
-      color: var(--c-white);
-      font-size: 13px;
-      font-weight: 700;
-    }
-    .mock-rules__body { padding: 12px; flex: 1; }
-    .mock-rules__item {
-      background: var(--c-white);
-      border-radius: 8px;
-      padding: 10px;
-      margin-bottom: 6px;
-      font-size: 11px;
-    }
-    .mock-rules__item-name {
-      font-weight: 600;
-      color: var(--c-text);
-      margin-bottom: 2px;
-    }
-    .mock-rules__item-rule {
-      font-size: 10px;
-      color: var(--c-cyan);
-      font-weight: 600;
-    }
-    .mock-rules__item-rule--exclude { color: var(--c-accent); }
 
     /* Phase mockup */
     .mock-phase__header {
@@ -550,6 +579,34 @@
       border: 2px solid var(--c-border);
       flex-shrink: 0;
     }
+
+    /* Rule learning mockup */
+    .mock-rules__header {
+      background: var(--c-cyan);
+      padding: 28px 14px 12px;
+      color: var(--c-white);
+      font-size: 13px;
+      font-weight: 700;
+    }
+    .mock-rules__body { padding: 12px; flex: 1; }
+    .mock-rules__item {
+      background: var(--c-white);
+      border-radius: 8px;
+      padding: 10px;
+      margin-bottom: 6px;
+      font-size: 11px;
+    }
+    .mock-rules__item-name {
+      font-weight: 600;
+      color: var(--c-text);
+      margin-bottom: 2px;
+    }
+    .mock-rules__item-rule {
+      font-size: 10px;
+      color: var(--c-cyan);
+      font-weight: 600;
+    }
+    .mock-rules__item-rule--exclude { color: var(--c-accent); }
 
     /* ============================================
        05. Scenes — tag cloud, left-aligned
@@ -860,7 +917,6 @@
       }
       .feat--reverse .feat__visual { order: 0; }
       .feat__visual { order: -1; }
-      .feat:nth-child(4) { max-width: none; }
       .feat__phone {
         width: 180px;
         height: 360px;
@@ -920,17 +976,17 @@
   <header class="hero">
     <div class="wrap">
       <div class="hero__content">
-        <div class="hero__badge">子育て家庭の準備アプリ</div>
+        <div class="hero__badge">お出かけの忘れ物チェックリスト</div>
         <h1 class="hero__title">
-          朝の「あれどこ？」を<br><span>ゼロにする。</span>
+          「あ、○○忘れた！」<br><span>もう焦らない。</span>
         </h1>
         <p class="hero__lead">
-          シーンを選ぶだけで、お子さんの年齢にぴったりの持ち物リストを自動作成。使うほど我が家にフィットします。
+          シーンを選ぶだけで持ち物リストを自動作成。家族みんなでリアルタイム共有できるから、準備の抜け漏れがなくなります。
         </p>
         <div class="hero__tags">
-          <span class="hero__tag">完全無料</span>
-          <span class="hero__tag">広告なし</span>
-          <span class="hero__tag">オフライン対応</span>
+          <span class="hero__tag">家族で共有</span>
+          <span class="hero__tag">7シーン対応</span>
+          <span class="hero__tag">オフラインでも操作OK</span>
         </div>
         <div class="hero__cta-area">
           <span class="btn-primary">
@@ -983,7 +1039,7 @@
   <!-- ==================== 02. Story ==================== -->
   <section class="story">
     <div class="wrap">
-      <div class="story__kicker">よくある朝の風景</div>
+      <div class="story__kicker">よくある週末の朝</div>
       <h2 class="story__heading">
         遠足の朝、<br>玄関で気づく「水筒がない」
       </h2>
@@ -995,7 +1051,7 @@
           もちものポケットは、<span class="story__highlight">そんな朝の5分を取り戻す</span>ために作りました。シーンと家族構成を選ぶだけで、必要なものがリストになる。前日よると当日あさに分けてチェックできるから、朝の焦りがなくなります。
         </p>
         <p>
-          しかも使うたびに「うちでは要らない」「うちでは必要」を覚えるから、<span class="story__highlight">我が家だけのリスト</span>に育っていきます。
+          しかも<span class="story__highlight">家族みんなでリストを共有</span>できるから、パパが初めてお出かけ準備を担当する日も、おばあちゃんの家にお泊まりする日も安心。誰かがチェックを入れれば、すぐにみんなに反映されます。
         </p>
       </div>
     </div>
@@ -1014,7 +1070,7 @@
       </div>
       <div class="bignum__item">
         <div class="bignum__value">0<span>円</span></div>
-        <div class="bignum__label">ずっと無料</div>
+        <div class="bignum__label">共有も無料</div>
       </div>
     </div>
   </section>
@@ -1024,14 +1080,63 @@
     <div class="wrap">
       <div class="features__intro">
         <div class="features__kicker">機能紹介</div>
-        <h2 class="features__title">シンプルだけど、<br>ちゃんと届く。</h2>
+        <h2 class="features__title">家族で使える、<br>忘れ物防止アプリ。</h2>
         <p class="features__subtitle">メモアプリでは足りなかった「かゆいところ」に手が届く、子育て家庭のための設計です。</p>
       </div>
 
-      <!-- Feature 1: Wizard -->
+      <!-- Feature 1: Family Sharing -->
       <div class="feat">
         <div class="feat__text">
           <div class="feat__num">01</div>
+          <h3 class="feat__heading">家族みんなで、<br>チェックリストを共有</h3>
+          <p class="feat__desc">招待コードを送るだけで家族全員が同じリストを共有。パパがチェックした項目はリアルタイムで反映されるから、「パパが水筒入れたよ」「ママはお弁当OK」がひと目でわかります。共有は無料、人数制限もありません。</p>
+        </div>
+        <div class="feat__visual">
+          <div class="feat__phone">
+            <div class="feat__phone-inner">
+              <div class="mock-share__header">
+                <div class="mock-share__label">遠足 — 共有中</div>
+                <div class="mock-share__title">持ち物チェック</div>
+                <div class="mock-share__members">
+                  <span class="mock-share__avatar" style="background: var(--c-accent);">マ</span>
+                  <span class="mock-share__avatar" style="background: var(--c-cyan);">パ</span>
+                  <span class="mock-share__avatar" style="background: var(--c-cyan-light);">ば</span>
+                </div>
+              </div>
+              <div class="mock-share__body">
+                <div class="mock-share__item">
+                  <div class="mock-share__check mock-share__check--done"></div>
+                  <span class="mock-share__name">リュックサック</span>
+                  <span class="mock-share__who">パパ ✓</span>
+                </div>
+                <div class="mock-share__item">
+                  <div class="mock-share__check mock-share__check--done"></div>
+                  <span class="mock-share__name">お弁当箱</span>
+                  <span class="mock-share__who">ママ ✓</span>
+                </div>
+                <div class="mock-share__item">
+                  <div class="mock-share__check mock-share__check--done"></div>
+                  <span class="mock-share__name">水筒</span>
+                  <span class="mock-share__who">パパ ✓</span>
+                </div>
+                <div class="mock-share__item">
+                  <div class="mock-share__check"></div>
+                  <span class="mock-share__name">レジャーシート</span>
+                </div>
+                <div class="mock-share__item">
+                  <div class="mock-share__check"></div>
+                  <span class="mock-share__name">おしぼり</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Feature 2: Wizard -->
+      <div class="feat feat--reverse">
+        <div class="feat__text">
+          <div class="feat__num">02</div>
           <h3 class="feat__heading">シーンを選ぶだけ、<br>3ステップ自動生成</h3>
           <p class="feat__desc">遠足、プール、旅行──おでかけのシーンをタップし、参加する家族と天気などの条件を選ぶだけ。お子さんの年齢に合わせた持ち物リストが自動で出来上がります。</p>
         </div>
@@ -1064,10 +1169,10 @@
         </div>
       </div>
 
-      <!-- Feature 2: Phase -->
-      <div class="feat feat--reverse">
+      <!-- Feature 3: Phase -->
+      <div class="feat">
         <div class="feat__text">
-          <div class="feat__num">02</div>
+          <div class="feat__num">03</div>
           <h3 class="feat__heading">前日よると当日あさ、<br>2フェーズで準備</h3>
           <p class="feat__desc">リュックに詰めるものは前日の夜に。お弁当や水筒は当日の朝に。フェーズを分けて表示するから、朝やることが明確になります。</p>
         </div>
@@ -1108,10 +1213,10 @@
         </div>
       </div>
 
-      <!-- Feature 3: Family Rules -->
-      <div class="feat">
+      <!-- Feature 4: Family Rules -->
+      <div class="feat feat--reverse">
         <div class="feat__text">
-          <div class="feat__num">03</div>
+          <div class="feat__num">04</div>
           <h3 class="feat__heading">使うほど、<br>我が家にフィット</h3>
           <p class="feat__desc">「紙コップは毎回外す」「うちでは替えの靴下が必要」──家庭ごとの細かいルールを学習して、次回から自動で反映。どんどん使いやすくなります。</p>
         </div>
@@ -1148,18 +1253,20 @@
   <section class="scenes">
     <div class="wrap">
       <div class="scenes__text">
-        <div class="scenes__kicker">テンプレート</div>
-        <h2 class="scenes__heading">7つのシーン、<br>ぜんぶカバー</h2>
-        <p class="scenes__desc">よくあるおでかけシーンに対応したテンプレートを搭載。選ぶだけですぐに準備を始められます。</p>
+        <div class="scenes__kicker">こんなシーンで</div>
+        <h2 class="scenes__heading">お出かけの準備、<br>これひとつで</h2>
+        <p class="scenes__desc">遠足から旅行まで、さまざまなお出かけシーンに対応。パパが初めて準備する日も、おばあちゃん家にお泊まりする日も安心です。</p>
       </div>
       <div class="scenes__tags">
         <span class="scene-pill"><span class="scene-pill__emoji">🎒</span> 遠足・校外学習</span>
+        <span class="scene-pill"><span class="scene-pill__emoji">🏃</span> 運動会</span>
+        <span class="scene-pill"><span class="scene-pill__emoji">✈️</span> 旅行（1泊）</span>
         <span class="scene-pill"><span class="scene-pill__emoji">🏊</span> プール</span>
+        <span class="scene-pill"><span class="scene-pill__emoji">👨</span> パパが初めて準備</span>
+        <span class="scene-pill"><span class="scene-pill__emoji">🏠</span> おばあちゃん家お泊まり</span>
+        <span class="scene-pill"><span class="scene-pill__emoji">🌳</span> 公園（半日）</span>
         <span class="scene-pill"><span class="scene-pill__emoji">🏫</span> 通園・通学</span>
         <span class="scene-pill"><span class="scene-pill__emoji">🏥</span> 通院</span>
-        <span class="scene-pill"><span class="scene-pill__emoji">🌳</span> 公園（半日）</span>
-        <span class="scene-pill"><span class="scene-pill__emoji">✈️</span> 旅行（1泊）</span>
-        <span class="scene-pill"><span class="scene-pill__emoji">🏃</span> 運動会</span>
       </div>
     </div>
   </section>
@@ -1169,7 +1276,7 @@
     <div class="wrap">
       <div class="mid-cta__text">
         忘れ物ゼロの毎日を、はじめよう。
-        <small>完全無料・広告なし・オフラインでも使えます</small>
+        <small>家族でリストを共有。お出かけの準備がもっとラクに</small>
       </div>
       <span class="btn-light">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
@@ -1205,7 +1312,7 @@
           <div class="step__marker">3</div>
           <div class="step__body">
             <div class="step__title">チェックリスト完成</div>
-            <p class="step__desc">条件にぴったりの持ち物リストが自動生成。あとはチェックするだけ。</p>
+            <p class="step__desc">条件にぴったりの持ち物リストが自動生成。家族と共有してチェックするだけ。</p>
           </div>
         </div>
       </div>
@@ -1217,11 +1324,11 @@
     <div class="wrap">
       <div class="trust__item">
         <div class="trust__icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
         </div>
         <div>
-          <div class="trust__label">データは端末内だけ</div>
-          <p class="trust__desc">アカウント登録不要。お子さんの情報は端末から外に出ません。</p>
+          <div class="trust__label">共有は無料・人数無制限</div>
+          <p class="trust__desc">家族何人でも無料で共有できます。招待コードを送るだけで簡単に接続。</p>
         </div>
       </div>
       <div class="trust__item">
@@ -1229,8 +1336,8 @@
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><line x1="12" y1="20" x2="12.01" y2="20"/></svg>
         </div>
         <div>
-          <div class="trust__label">オフラインで動作</div>
-          <p class="trust__desc">電波のない場所でも安心。キャンプ場や山間の遠足先でも使えます。</p>
+          <div class="trust__label">オフラインでも操作OK</div>
+          <p class="trust__desc">電波のない場所でもチェックリストの確認・チェックができます。</p>
         </div>
       </div>
       <div class="trust__item">
@@ -1238,8 +1345,8 @@
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
         </div>
         <div>
-          <div class="trust__label">完全無料、広告なし</div>
-          <p class="trust__desc">家計にやさしく、画面もすっきり。安心して毎日使えます。</p>
+          <div class="trust__label">無料ではじめられる</div>
+          <p class="trust__desc">ダウンロードも利用も無料。すぐにお出かけ準備に使い始められます。</p>
         </div>
       </div>
     </div>
@@ -1249,7 +1356,7 @@
   <section class="bottom-cta">
     <div class="wrap">
       <h2 class="bottom-cta__title">もう「忘れた！」で<br>慌てない。</h2>
-      <p class="bottom-cta__desc">もちものポケットで、朝の余裕を手に入れませんか。</p>
+      <p class="bottom-cta__desc">もちものポケットで、お出かけ準備をもっとラクに。</p>
       <span class="btn-primary">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
         App Store — 近日公開
