@@ -162,12 +162,6 @@
       display: flex;
       justify-content: center;
     }
-    .hero__phone img {
-      max-width: 280px;
-      height: auto;
-      border-radius: 32px;
-      box-shadow: 0 20px 60px rgba(11,91,127,0.1), 0 4px 12px rgba(11,91,127,0.06);
-    }
     .phone-frame {
       width: 240px;
       height: 480px;
@@ -178,102 +172,11 @@
       position: relative;
       box-shadow: 0 20px 60px rgba(11,91,127,0.1), 0 4px 12px rgba(11,91,127,0.06);
     }
-    .phone-frame__notch {
-      position: absolute;
-      top: 12px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 80px;
-      height: 22px;
-      background: var(--c-white);
-      border-radius: 0 0 14px 14px;
-      z-index: 2;
-      border-bottom: 2px solid var(--c-border);
-      border-left: 2px solid var(--c-border);
-      border-right: 2px solid var(--c-border);
-    }
-    .phone-frame__screen {
+    .phone-frame__inner {
       width: 100%;
       height: 100%;
-      background: var(--c-tint);
-      border-radius: 22px;
+      border-radius: 24px;
       overflow: hidden;
-      display: flex;
-      flex-direction: column;
-    }
-    .phone-screen__header {
-      background: var(--c-navy);
-      padding: 36px 16px 14px;
-      color: var(--c-white);
-    }
-    .phone-screen__header-label {
-      font-size: 10px;
-      opacity: 0.7;
-      margin-bottom: 4px;
-    }
-    .phone-screen__header-title {
-      font-size: 15px;
-      font-weight: 700;
-    }
-    .phone-screen__body { padding: 12px; flex: 1; }
-    .phone-screen__item {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      padding: 8px 10px;
-      background: var(--c-white);
-      border-radius: 8px;
-      margin-bottom: 6px;
-      font-size: 11px;
-      color: var(--c-text);
-    }
-    .phone-screen__check {
-      width: 18px;
-      height: 18px;
-      border-radius: 4px;
-      border: 2px solid var(--c-border);
-      flex-shrink: 0;
-    }
-    .phone-screen__check--done {
-      background: var(--c-cyan);
-      border-color: var(--c-cyan);
-      position: relative;
-    }
-    .phone-screen__check--done::after {
-      content: '';
-      position: absolute;
-      left: 4px;
-      top: 1px;
-      width: 6px;
-      height: 10px;
-      border: solid var(--c-white);
-      border-width: 0 2px 2px 0;
-      transform: rotate(45deg);
-    }
-    .phone-screen__phase {
-      font-size: 9px;
-      font-weight: 600;
-      color: var(--c-cyan);
-      padding: 10px 10px 4px;
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-    }
-    .phone-screen__tab {
-      display: flex;
-      background: var(--c-white);
-      border-top: 1px solid var(--c-border);
-    }
-    .phone-screen__tab-item {
-      flex: 1;
-      text-align: center;
-      padding: 8px 0;
-      font-size: 9px;
-      color: var(--c-text-muted);
-    }
-    .phone-screen__tab-item--active {
-      color: var(--c-cyan);
-      font-weight: 600;
-      border-top: 2px solid var(--c-cyan);
     }
 
     /* ============================================
@@ -412,15 +315,9 @@
       display: flex;
       justify-content: center;
     }
-    .feat__screenshot {
-      max-width: 240px;
-      height: auto;
-      border-radius: 28px;
-      box-shadow: 0 12px 40px rgba(11,91,127,0.08);
-    }
     .feat__phone {
-      width: 220px;
-      height: 440px;
+      width: 200px;
+      height: 400px;
       background: var(--c-white);
       border: 2.5px solid var(--c-border);
       border-radius: 28px;
@@ -432,92 +329,9 @@
       height: 100%;
       border-radius: 20px;
       overflow: hidden;
-      background: var(--c-tint);
-      display: flex;
-      flex-direction: column;
     }
 
 
-    /* Wizard screen mockup */
-    .mock-wizard__header {
-      background: var(--c-navy);
-      padding: 28px 14px 12px;
-      color: var(--c-white);
-      font-size: 13px;
-      font-weight: 700;
-    }
-    .mock-wizard__step {
-      font-size: 9px;
-      opacity: 0.7;
-      margin-bottom: 3px;
-    }
-    .mock-wizard__body { padding: 12px; flex: 1; }
-    .mock-wizard__option {
-      background: var(--c-white);
-      border-radius: 10px;
-      padding: 10px 12px;
-      margin-bottom: 8px;
-      font-size: 12px;
-      color: var(--c-text);
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-    .mock-wizard__option--selected {
-      border: 2px solid var(--c-cyan);
-      background: rgba(27,169,214,0.05);
-    }
-    .mock-wizard__option-icon {
-      font-size: 16px;
-      line-height: 1;
-    }
-
-    /* Phase mockup */
-    .mock-phase__header {
-      background: var(--c-navy);
-      padding: 28px 14px 10px;
-      color: var(--c-white);
-    }
-    .mock-phase__title {
-      font-size: 13px;
-      font-weight: 700;
-    }
-    .mock-phase__tabs {
-      display: flex;
-      margin-top: 8px;
-      gap: 0;
-    }
-    .mock-phase__tab {
-      flex: 1;
-      text-align: center;
-      font-size: 10px;
-      padding: 6px 0;
-      color: rgba(255,255,255,0.6);
-    }
-    .mock-phase__tab--active {
-      color: var(--c-white);
-      border-bottom: 2px solid var(--c-white);
-      font-weight: 600;
-    }
-    .mock-phase__body { padding: 10px; flex: 1; }
-    .mock-phase__item {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      background: var(--c-white);
-      border-radius: 8px;
-      padding: 8px 10px;
-      margin-bottom: 5px;
-      font-size: 11px;
-      color: var(--c-text);
-    }
-    .mock-phase__dot {
-      width: 16px;
-      height: 16px;
-      border-radius: 4px;
-      border: 2px solid var(--c-border);
-      flex-shrink: 0;
-    }
 
 
     /* ============================================
@@ -804,13 +618,7 @@
         border-radius: 28px;
         padding: 10px;
       }
-      .phone-frame__notch {
-        width: 64px;
-        height: 18px;
-        top: 10px;
-        border-radius: 0 0 10px 10px;
-      }
-      .phone-frame__screen { border-radius: 18px; }
+      .phone-frame__inner { border-radius: 20px; }
 
       .story { padding: 72px 0 48px; }
 
@@ -830,14 +638,8 @@
       .feat--reverse .feat__visual { order: 0; }
       .feat__visual { order: -1; }
       .feat__phone {
-        width: 180px;
-        height: 360px;
-      }
-      .hero__phone img {
-        max-width: 220px;
-      }
-      .feat__screenshot {
-        max-width: 200px;
+        width: 160px;
+        height: 320px;
       }
 
       .scenes .wrap {
@@ -874,14 +676,12 @@
       .wrap { padding: 0 16px; }
       .hero { padding: 48px 0 24px; }
       .phone-frame {
-        width: 180px;
-        height: 360px;
+        width: 160px;
+        height: 320px;
       }
-      .hero__phone img {
-        max-width: 180px;
-      }
-      .feat__screenshot {
-        max-width: 180px;
+      .feat__phone {
+        width: 140px;
+        height: 280px;
       }
       .btn-primary, .btn-light {
         width: 100%;
@@ -921,7 +721,13 @@
         </div>
       </div>
       <div class="hero__phone">
-        <img src="images/screenshots/01_home_lp.png" alt="もちものポケット ホーム画面">
+        <div class="phone-frame">
+          <div class="phone-frame__inner">
+            <img src="images/screenshots/01_home_raw.png"
+                 alt="もちものポケット ホーム画面" loading="lazy"
+                 style="width:100%;height:100%;object-fit:cover;object-position:top;">
+          </div>
+        </div>
       </div>
     </div>
   </header>
@@ -985,7 +791,13 @@
           <p class="feat__desc">招待コードを送るだけで家族全員が同じリストを共有。パパがチェックした項目はリアルタイムで反映されるから、「パパが水筒入れたよ」「ママはお弁当OK」がひと目でわかります。持ち物リストのリンクを送れば、アプリを開いてすぐ中身を確認できます。共有は無料、人数制限もありません。</p>
         </div>
         <div class="feat__visual">
-          <img src="images/screenshots/05_family_lp.png" alt="家族メンバー設定・共有画面" class="feat__screenshot">
+          <div class="feat__phone">
+            <div class="feat__phone-inner">
+              <img src="images/screenshots/08_family_raw.png"
+                   alt="家族メンバー設定・共有画面" loading="lazy"
+                   style="width:100%;height:100%;object-fit:cover;object-position:top;">
+            </div>
+          </div>
         </div>
       </div>
 
@@ -997,7 +809,13 @@
           <p class="feat__desc">遠足、プール、旅行──おでかけのシーンをタップし、参加する家族と天気などの条件を選ぶだけ。お子さんの年齢に合わせた持ち物リストが自動で出来上がります。</p>
         </div>
         <div class="feat__visual">
-          <img src="images/screenshots/02_scene_lp.png" alt="シーン選択画面" class="feat__screenshot">
+          <div class="feat__phone">
+            <div class="feat__phone-inner">
+              <img src="images/screenshots/02_scene_raw.png"
+                   alt="シーン選択画面" loading="lazy"
+                   style="width:100%;height:100%;object-fit:cover;object-position:top;">
+            </div>
+          </div>
         </div>
       </div>
 
@@ -1009,7 +827,13 @@
           <p class="feat__desc">リュックに詰めるものは前日の夜に。お弁当や水筒は当日の朝に。フェーズを分けて表示するから、朝やることが明確になります。出発日をカレンダーに登録しておけば、前日にリマインダーも届きます。</p>
         </div>
         <div class="feat__visual">
-          <img src="images/screenshots/04_cl_lp.png" alt="チェックリスト詳細画面（よるのじゅんび・あさのじゅんび）" class="feat__screenshot">
+          <div class="feat__phone">
+            <div class="feat__phone-inner">
+              <img src="images/screenshots/05_cl_detail_raw.png"
+                   alt="チェックリスト詳細画面（よるのじゅんび・あさのじゅんび）" loading="lazy"
+                   style="width:100%;height:100%;object-fit:cover;object-position:top;">
+            </div>
+          </div>
         </div>
       </div>
 
@@ -1021,7 +845,13 @@
           <p class="feat__desc">「紙コップは毎回外す」「うちでは替えの靴下が必要」──家庭ごとの細かいルールを学習して、次回から自動で反映。どんどん使いやすくなります。</p>
         </div>
         <div class="feat__visual">
-          <img src="images/screenshots/06_rules_lp.png" class="feat__screenshot" alt="我が家ルール画面">
+          <div class="feat__phone">
+            <div class="feat__phone-inner">
+              <img src="images/screenshots/06_rules_raw.png"
+                   alt="我が家ルール画面" loading="lazy"
+                   style="width:100%;height:100%;object-fit:cover;object-position:top;">
+            </div>
+          </div>
         </div>
       </div>
       <!-- Feature 5: Share -->
@@ -1032,7 +862,13 @@
           <p class="feat__desc">遠足の持ち物、パパにもおばあちゃんにも一発で伝わる。共有ボタンをタップするだけで、チェックリストの中身がテキストになってメッセージアプリやメールで送れます。「何持っていくの？」の電話が減ります。</p>
         </div>
         <div class="feat__visual">
-          <img src="images/screenshots/07_share_lp.png" class="feat__screenshot" alt="共有メニュー画面">
+          <div class="feat__phone">
+            <div class="feat__phone-inner">
+              <img src="images/screenshots/06_share_raw.png"
+                   alt="共有メニュー画面" loading="lazy"
+                   style="width:100%;height:100%;object-fit:cover;object-position:top;">
+            </div>
+          </div>
         </div>
       </div>
     </div>
