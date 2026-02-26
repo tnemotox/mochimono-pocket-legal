@@ -82,7 +82,7 @@
     }
     .hero .wrap {
       display: grid;
-      grid-template-columns: 1fr 300px;
+      grid-template-columns: 1fr auto;
       gap: 48px;
       align-items: center;
     }
@@ -161,6 +161,12 @@
       position: relative;
       display: flex;
       justify-content: center;
+    }
+    .hero__phone img {
+      max-height: 500px;
+      width: auto;
+      border-radius: 32px;
+      box-shadow: 0 20px 60px rgba(11,91,127,0.1), 0 4px 12px rgba(11,91,127,0.06);
     }
     .phone-frame {
       width: 240px;
@@ -405,6 +411,12 @@
     .feat__visual {
       display: flex;
       justify-content: center;
+    }
+    .feat__screenshot {
+      max-height: 420px;
+      width: auto;
+      border-radius: 28px;
+      box-shadow: 0 12px 40px rgba(11,91,127,0.08);
     }
     .feat__phone {
       width: 200px;
@@ -921,6 +933,12 @@
         width: 180px;
         height: 360px;
       }
+      .hero__phone img {
+        max-height: 400px;
+      }
+      .feat__screenshot {
+        max-height: 340px;
+      }
 
       .scenes .wrap {
         grid-template-columns: 1fr;
@@ -958,6 +976,12 @@
       .phone-frame {
         width: 180px;
         height: 360px;
+      }
+      .hero__phone img {
+        max-height: 300px;
+      }
+      .feat__screenshot {
+        max-height: 300px;
       }
       .btn-primary, .btn-light {
         width: 100%;
@@ -997,7 +1021,7 @@
         </div>
       </div>
       <div class="hero__phone">
-        <img src="images/screenshots/01_home_lp.png" alt="もちものポケット ホーム画面" style="max-width: 300px; width: 100%; height: auto;">
+        <img src="images/screenshots/01_home_lp.png" alt="もちものポケット ホーム画面">
       </div>
     </div>
   </header>
@@ -1061,7 +1085,7 @@
           <p class="feat__desc">招待コードを送るだけで家族全員が同じリストを共有。パパがチェックした項目はリアルタイムで反映されるから、「パパが水筒入れたよ」「ママはお弁当OK」がひと目でわかります。持ち物リストのリンクを送れば、アプリを開いてすぐ中身を確認できます。共有は無料、人数制限もありません。</p>
         </div>
         <div class="feat__visual">
-          <img src="images/screenshots/05_family_lp.png" alt="家族メンバー設定・共有画面" style="max-width: 260px; width: 100%; height: auto;">
+          <img src="images/screenshots/05_family_lp.png" alt="家族メンバー設定・共有画面" class="feat__screenshot">
         </div>
       </div>
 
@@ -1073,7 +1097,7 @@
           <p class="feat__desc">遠足、プール、旅行──おでかけのシーンをタップし、参加する家族と天気などの条件を選ぶだけ。お子さんの年齢に合わせた持ち物リストが自動で出来上がります。</p>
         </div>
         <div class="feat__visual">
-          <img src="images/screenshots/02_scene_lp.png" alt="シーン選択画面" style="max-width: 260px; width: 100%; height: auto;">
+          <img src="images/screenshots/02_scene_lp.png" alt="シーン選択画面" class="feat__screenshot">
         </div>
       </div>
 
@@ -1085,7 +1109,7 @@
           <p class="feat__desc">リュックに詰めるものは前日の夜に。お弁当や水筒は当日の朝に。フェーズを分けて表示するから、朝やることが明確になります。出発日をカレンダーに登録しておけば、前日にリマインダーも届きます。</p>
         </div>
         <div class="feat__visual">
-          <img src="images/screenshots/04_cl_lp.png" alt="チェックリスト詳細画面（よるのじゅんび・あさのじゅんび）" style="max-width: 260px; width: 100%; height: auto;">
+          <img src="images/screenshots/04_cl_lp.png" alt="チェックリスト詳細画面（よるのじゅんび・あさのじゅんび）" class="feat__screenshot">
         </div>
       </div>
 
