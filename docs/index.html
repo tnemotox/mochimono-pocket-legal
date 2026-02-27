@@ -6,6 +6,37 @@
   <title>もちものポケット - お出かけの忘れ物チェックリスト</title>
   <meta name="description" content="シーンを選ぶだけでお子さんの年齢にぴったりの持ち物リストを自動作成。家族みんなでリアルタイム共有できるお出かけ準備アプリ。">
   <meta name="theme-color" content="#0B5B7F">
+  <!-- OGP (#6) -->
+  <meta property="og:title" content="もちものポケット - お出かけの忘れ物チェックリスト">
+  <meta property="og:description" content="シーンを選ぶだけでお子さんの年齢にぴったりの持ち物リストを自動作成。家族みんなでリアルタイム共有できるお出かけ準備アプリ。">
+  <meta property="og:image" content="https://tnemotox.github.io/mochimono-pocket/apple-touch-icon.png">
+  <meta property="og:url" content="https://tnemotox.github.io/mochimono-pocket/">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="ja_JP">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="もちものポケット - お出かけの忘れ物チェックリスト">
+  <meta name="twitter:description" content="シーンを選ぶだけでお子さんの年齢にぴったりの持ち物リストを自動作成。家族みんなでリアルタイム共有できるお出かけ準備アプリ。">
+  <!-- Canonical (ADD-05) -->
+  <link rel="canonical" href="https://tnemotox.github.io/mochimono-pocket/">
+  <!-- Favicon (#7) -->
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <!-- JSON-LD (#17) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "もちものポケット",
+    "operatingSystem": "iOS",
+    "applicationCategory": "LifestyleApplication",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "JPY"
+    },
+    "description": "シーンを選ぶだけでお子さんの年齢にぴったりの持ち物リストを自動作成。家族みんなでリアルタイム共有できるお出かけ準備アプリ。"
+  }
+  </script>
   <style>
     /* ============================================
        Design Tokens
@@ -60,6 +91,8 @@
     }
     img, svg { display: block; max-width: 100%; }
     a { color: inherit; }
+    /* Button reset (ADD-01) */
+    button { border: none; font: inherit; cursor: inherit; }
 
     /* ============================================
        Utility
@@ -87,6 +120,14 @@
       align-items: center;
     }
     .hero__content { text-align: left; }
+    /* App icon in Hero (#12) */
+    .hero__icon {
+      width: 56px;
+      height: 56px;
+      border-radius: 12px;
+      margin-bottom: 16px;
+      box-shadow: 0 2px 8px rgba(11,91,127,0.1);
+    }
     .hero__badge {
       display: inline-block;
       font-size: var(--fs-xs);
@@ -130,7 +171,7 @@
       font-weight: 500;
     }
     .hero__tag::before {
-      content: '✓ ';
+      content: '\2713\0020';
       color: var(--c-cyan);
       font-weight: 700;
     }
@@ -152,6 +193,7 @@
       font-weight: 600;
       letter-spacing: 0.01em;
       transition: background 0.25s var(--ease);
+      /* TODO: App Store公開時に cursor: pointer に変更 (ADD-04) */
       cursor: default;
     }
     .btn-primary:hover { background: var(--c-navy-deep); }
@@ -286,6 +328,13 @@
     }
     .feat:last-child { margin-bottom: 0; }
     .feat--reverse .feat__visual { order: -1; }
+    /* #18a — Vary grid ratios to break cookie-cutter pattern */
+    .feat--grid-text-heavy { grid-template-columns: 1.2fr 0.8fr; }
+    .feat--grid-visual-heavy { grid-template-columns: 0.85fr 1.15fr; }
+    .feat--grid-text-dominant { grid-template-columns: 1.3fr 0.7fr; }
+    /* #18b — Vary spacing between features */
+    .feat--mb-sm { margin-bottom: 64px; }
+    .feat--mb-lg { margin-bottom: 96px; }
 
     .feat__text {}
     .feat__num {
@@ -310,14 +359,14 @@
       line-height: var(--lh-relaxed);
     }
 
-    /* Feature visual — phone screens */
+    /* Feature visual — phone screens (#14 — enlarged 220x440) */
     .feat__visual {
       display: flex;
       justify-content: center;
     }
     .feat__phone {
-      width: 200px;
-      height: 400px;
+      width: 220px;
+      height: 440px;
       background: var(--c-white);
       border: 2.5px solid var(--c-border);
       border-radius: 28px;
@@ -331,8 +380,32 @@
       overflow: hidden;
     }
 
-
-
+    /* #18c — Break element between Features 3 and 4 */
+    .feat-break {
+      padding: 40px 0;
+      margin-bottom: 72px;
+    }
+    .feat-break__inner {
+      max-width: 520px;
+      margin: 0 auto;
+      text-align: center;
+      border-left: 3px solid var(--c-cyan);
+      padding: 24px 32px;
+      background: var(--c-tint);
+      border-radius: 0 12px 12px 0;
+    }
+    .feat-break__lead {
+      font-size: var(--fs-lead);
+      font-weight: 700;
+      color: var(--c-navy);
+      line-height: var(--lh-tight);
+      margin-bottom: 8px;
+    }
+    .feat-break__sub {
+      font-size: var(--fs-sm);
+      color: var(--c-text-sub);
+      line-height: var(--lh-normal);
+    }
 
     /* ============================================
        05. Scenes — tag cloud, left-aligned
@@ -424,6 +497,7 @@
       font-weight: 600;
       white-space: nowrap;
       transition: transform 0.2s var(--ease);
+      /* TODO: App Store公開時に cursor: pointer に変更 (ADD-04) */
       cursor: default;
     }
     .btn-light:hover { transform: translateY(-1px); }
@@ -608,6 +682,7 @@
         text-align: center;
       }
       .hero__content { text-align: center; }
+      .hero__icon { margin-left: auto; margin-right: auto; }
       .hero__lead { margin-left: auto; margin-right: auto; }
       .hero__tags { justify-content: center; }
       .hero__cta-area { justify-content: center; }
@@ -630,17 +705,24 @@
 
       .features { padding: 72px 0 56px; }
       .features__intro { margin-bottom: 48px; }
-      .feat {
+      .feat,
+      .feat--grid-text-heavy,
+      .feat--grid-visual-heavy,
+      .feat--grid-text-dominant {
         grid-template-columns: 1fr;
         gap: 32px;
-        margin-bottom: 64px;
+        margin-bottom: 56px;
       }
+      .feat--mb-sm { margin-bottom: 48px; }
+      .feat--mb-lg { margin-bottom: 64px; }
       .feat--reverse .feat__visual { order: 0; }
       .feat__visual { order: -1; }
       .feat__phone {
-        width: 160px;
-        height: 320px;
+        width: 180px;
+        height: 360px;
       }
+      .feat-break { padding: 24px 0; margin-bottom: 48px; }
+      .feat-break__inner { padding: 20px 24px; }
 
       .scenes .wrap {
         grid-template-columns: 1fr;
@@ -680,8 +762,8 @@
         height: 320px;
       }
       .feat__phone {
-        width: 140px;
-        height: 280px;
+        width: 150px;
+        height: 300px;
       }
       .btn-primary, .btn-light {
         width: 100%;
@@ -700,39 +782,49 @@
   <header class="hero">
     <div class="wrap">
       <div class="hero__content">
+        <!-- #12 App icon -->
+        <img src="apple-touch-icon.png" alt="" width="56" height="56" class="hero__icon">
         <div class="hero__badge">お出かけの忘れ物チェックリスト</div>
+        <!-- #1 Shortened hero title -->
         <h1 class="hero__title">
-          「あ、○○忘れた！」<br><span>もう焦らない。</span>
+          「あ、忘れた！」<br><span>もう焦らない。</span>
         </h1>
+        <!-- #13 Compressed lead -->
         <p class="hero__lead">
-          シーンを選ぶだけで持ち物リストを自動作成。家族みんなでリアルタイム共有できるから、準備の抜け漏れがなくなります。
+          シーンを選ぶだけでリスト自動作成。家族で共有して、準備の抜け漏れゼロに。
         </p>
+        <!-- #2 Four distinct value tags -->
         <div class="hero__tags">
           <span class="hero__tag">家族で共有</span>
-          <span class="hero__tag">持ち物リストをすぐ共有</span>
+          <span class="hero__tag">前日リマインド</span>
           <span class="hero__tag">7シーン対応</span>
-          <span class="hero__tag">オフラインでも操作OK</span>
+          <span class="hero__tag">我が家ルール学習</span>
         </div>
+        <!-- ADD-01 button + #4/#19 CTA copy -->
         <div class="hero__cta-area">
-          <span class="btn-primary">
+          <button disabled class="btn-primary" aria-label="App Store — まもなく登場">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
-            近日公開
-          </span>
+            まもなく登場 — App Store
+          </button>
         </div>
       </div>
       <div class="hero__phone">
         <div class="phone-frame">
           <div class="phone-frame__inner">
-            <img src="images/screenshots/01_home_raw.png"
-                 alt="もちものポケット ホーム画面" loading="lazy"
-                 style="width:100%;height:100%;object-fit:cover;object-position:top;">
+            <!-- ADD-02 removed loading=lazy from hero image / #16 picture+WebP -->
+            <picture>
+              <source srcset="images/screenshots/01_home_raw.webp" type="image/webp">
+              <img src="images/screenshots/01_home_raw.png"
+                   alt="もちものポケット ホーム画面"
+                   style="width:100%;height:100%;object-fit:cover;object-position:top;">
+            </picture>
           </div>
         </div>
       </div>
     </div>
   </header>
 
-  <!-- ==================== 02. Story ==================== -->
+  <!-- ==================== 02. Story (#8 compressed to 2 paragraphs) ==================== -->
   <section class="story">
     <div class="wrap">
       <div class="story__kicker">よくある週末の朝</div>
@@ -741,22 +833,16 @@
       </h2>
       <div class="story__body">
         <p>
-          前の晩に準備したはずなのに、朝になると何かが足りない。おたよりを引っ張り出して確認する時間もない。子どもは「まだ？」と急かすし、下の子はぐずり始める。
+          前の晩に準備したはずなのに、朝になると何かが足りない。おたよりを引っ張り出して確認する時間もないし、子どもは「まだ？」と急かすし、下の子はぐずり始める。
         </p>
         <p>
-          もちものポケットは、<span class="story__highlight">そんな朝の5分を取り戻す</span>ために作りました。シーンと家族構成を選ぶだけで、必要なものがリストになる。前日よると当日あさに分けてチェックできるから、朝の焦りがなくなります。
-        </p>
-        <p>
-          しかも<span class="story__highlight">家族みんなでリストを共有</span>できるから、パパが初めてお出かけ準備を担当する日も、おばあちゃんの家にお泊まりする日も安心。誰かがチェックを入れれば、すぐにみんなに反映されます。
-        </p>
-        <p>
-          おばあちゃんに持ち物リストを送りたいときも、共有ボタンから送るだけ。「何持っていけばいい？」の電話はもういりません。
+          もちものポケットは、<span class="story__highlight">そんな朝の5分を取り戻す</span>ために作りました。シーンと家族構成を選ぶだけでリストが完成。前日よると当日あさに分けてチェックできるから、朝の焦りがなくなります。しかも<span class="story__highlight">家族みんなでリストを共有</span>できるので、パパが初めて準備する日も、おばあちゃんの家にお泊まりする日も安心です。
         </p>
       </div>
     </div>
   </section>
 
-  <!-- ==================== 03. Big Numbers ==================== -->
+  <!-- ==================== 03. Big Numbers (#3 fix "0円" misleading) ==================== -->
   <section class="bignum">
     <div class="wrap">
       <div class="bignum__item">
@@ -768,41 +854,45 @@
         <div class="bignum__label">リスト作成まで</div>
       </div>
       <div class="bignum__item">
-        <div class="bignum__value">0<span>円</span></div>
-        <div class="bignum__label">共有も無料</div>
+        <div class="bignum__value">0<span>円〜</span></div>
+        <div class="bignum__label">基本無料</div>
       </div>
     </div>
   </section>
 
-  <!-- ==================== 04. Features ==================== -->
-  <section class="features">
+  <!-- ==================== 04. Features (ADD-06 aria-labelledby) ==================== -->
+  <section class="features" aria-labelledby="features-title">
     <div class="wrap">
       <div class="features__intro">
         <div class="features__kicker">機能紹介</div>
-        <h2 class="features__title">家族で使える、<br>忘れ物防止アプリ。</h2>
+        <h2 class="features__title" id="features-title">家族で使える、<br>忘れ物防止アプリ。</h2>
         <p class="features__subtitle">メモアプリでは足りなかった「かゆいところ」に手が届く、子育て家庭のための設計です。</p>
       </div>
 
-      <!-- Feature 1: Family Sharing -->
-      <div class="feat">
+      <!-- Feature 1: Family Sharing (#18a grid-text-heavy / #18b mb-sm / ADD-03 compressed desc) -->
+      <div class="feat feat--grid-text-heavy feat--mb-sm">
         <div class="feat__text">
           <div class="feat__num">01</div>
           <h3 class="feat__heading">家族みんなで、<br>チェックリストを共有</h3>
-          <p class="feat__desc">招待コードを送るだけで家族全員が同じリストを共有。パパがチェックした項目はリアルタイムで反映されるから、「パパが水筒入れたよ」「ママはお弁当OK」がひと目でわかります。持ち物リストのリンクを送れば、アプリを開いてすぐ中身を確認できます。共有は無料、人数制限もありません。</p>
+          <p class="feat__desc">招待コードを送るだけで家族全員がリストを共有。パパがチェックした項目はリアルタイムで反映されるから、誰が何を準備したかひと目でわかります。共有は無料・人数無制限です。</p>
         </div>
         <div class="feat__visual">
           <div class="feat__phone">
             <div class="feat__phone-inner">
-              <img src="images/screenshots/08_family_raw.png"
-                   alt="家族メンバー設定・共有画面" loading="lazy"
-                   style="width:100%;height:100%;object-fit:cover;object-position:top;">
+              <!-- #16 picture+WebP -->
+              <picture>
+                <source srcset="images/screenshots/08_family_raw.webp" type="image/webp">
+                <img src="images/screenshots/08_family_raw.png"
+                     alt="家族メンバー設定・共有画面" loading="lazy"
+                     style="width:100%;height:100%;object-fit:cover;object-position:top;">
+              </picture>
             </div>
           </div>
         </div>
       </div>
 
-      <!-- Feature 2: Wizard -->
-      <div class="feat feat--reverse">
+      <!-- Feature 2: Wizard (#18b mb-lg) -->
+      <div class="feat feat--reverse feat--mb-lg">
         <div class="feat__text">
           <div class="feat__num">02</div>
           <h3 class="feat__heading">シーンを選ぶだけ、<br>3ステップ自動生成</h3>
@@ -811,16 +901,19 @@
         <div class="feat__visual">
           <div class="feat__phone">
             <div class="feat__phone-inner">
-              <img src="images/screenshots/02_scene_raw.png"
-                   alt="シーン選択画面" loading="lazy"
-                   style="width:100%;height:100%;object-fit:cover;object-position:top;">
+              <picture>
+                <source srcset="images/screenshots/02_scene_raw.webp" type="image/webp">
+                <img src="images/screenshots/02_scene_raw.png"
+                     alt="シーン選択画面" loading="lazy"
+                     style="width:100%;height:100%;object-fit:cover;object-position:top;">
+              </picture>
             </div>
           </div>
         </div>
       </div>
 
-      <!-- Feature 3: Phase -->
-      <div class="feat">
+      <!-- Feature 3: Phase (#18a grid-visual-heavy) -->
+      <div class="feat feat--grid-visual-heavy">
         <div class="feat__text">
           <div class="feat__num">03</div>
           <h3 class="feat__heading">前日よると当日あさ、<br>2フェーズで準備</h3>
@@ -829,16 +922,27 @@
         <div class="feat__visual">
           <div class="feat__phone">
             <div class="feat__phone-inner">
-              <img src="images/screenshots/05_cl_detail_raw.png"
-                   alt="チェックリスト詳細画面（よるのじゅんび・あさのじゅんび）" loading="lazy"
-                   style="width:100%;height:100%;object-fit:cover;object-position:top;">
+              <picture>
+                <source srcset="images/screenshots/05_cl_detail_raw.webp" type="image/webp">
+                <img src="images/screenshots/05_cl_detail_raw.png"
+                     alt="チェックリスト詳細画面（よるのじゅんび・あさのじゅんび）" loading="lazy"
+                     style="width:100%;height:100%;object-fit:cover;object-position:top;">
+              </picture>
             </div>
           </div>
         </div>
       </div>
 
-      <!-- Feature 4: Family Rules -->
-      <div class="feat feat--reverse">
+      <!-- #18c Break element — disrupts the 5-feature cookie-cutter pattern (3 + break + 2) -->
+      <div class="feat-break">
+        <div class="feat-break__inner">
+          <p class="feat-break__lead">「誰が準備しても、同じ完成度になる」</p>
+          <p class="feat-break__sub">それが、もちものポケットの目指す家族のかたち。</p>
+        </div>
+      </div>
+
+      <!-- Feature 4: Family Rules (#18a grid — default 1fr 1fr / #18b mb-sm) -->
+      <div class="feat feat--reverse feat--mb-sm">
         <div class="feat__text">
           <div class="feat__num">04</div>
           <h3 class="feat__heading">使うほど、<br>我が家にフィット</h3>
@@ -847,15 +951,19 @@
         <div class="feat__visual">
           <div class="feat__phone">
             <div class="feat__phone-inner">
-              <img src="images/screenshots/06_rules_raw.png"
-                   alt="我が家ルール画面" loading="lazy"
-                   style="width:100%;height:100%;object-fit:cover;object-position:top;">
+              <picture>
+                <source srcset="images/screenshots/06_rules_raw.webp" type="image/webp">
+                <img src="images/screenshots/06_rules_raw.png"
+                     alt="我が家ルール画面" loading="lazy"
+                     style="width:100%;height:100%;object-fit:cover;object-position:top;">
+              </picture>
             </div>
           </div>
         </div>
       </div>
-      <!-- Feature 5: Share -->
-      <div class="feat">
+
+      <!-- Feature 5: Share (#18a grid-text-dominant) -->
+      <div class="feat feat--grid-text-dominant">
         <div class="feat__text">
           <div class="feat__num">05</div>
           <h3 class="feat__heading">持ち物リストを、<br>さっと共有</h3>
@@ -864,9 +972,12 @@
         <div class="feat__visual">
           <div class="feat__phone">
             <div class="feat__phone-inner">
-              <img src="images/screenshots/06_share_raw.png"
-                   alt="共有メニュー画面" loading="lazy"
-                   style="width:100%;height:100%;object-fit:cover;object-position:top;">
+              <picture>
+                <source srcset="images/screenshots/06_share_raw.webp" type="image/webp">
+                <img src="images/screenshots/06_share_raw.png"
+                     alt="共有メニュー画面" loading="lazy"
+                     style="width:100%;height:100%;object-fit:cover;object-position:top;">
+              </picture>
             </div>
           </div>
         </div>
@@ -874,21 +985,19 @@
     </div>
   </section>
 
-  <!-- ==================== 05. Scenes ==================== -->
-  <section class="scenes">
+  <!-- ==================== 05. Scenes (#11 reduced to 7 app scenes / ADD-06 aria) ==================== -->
+  <section class="scenes" aria-labelledby="scenes-title">
     <div class="wrap">
       <div class="scenes__text">
         <div class="scenes__kicker">こんなシーンで</div>
-        <h2 class="scenes__heading">お出かけの準備、<br>これひとつで</h2>
-        <p class="scenes__desc">遠足から旅行まで、さまざまなお出かけシーンに対応。パパが初めて準備する日も、おばあちゃん家にお泊まりする日も安心。リストを共有すれば、準備する人が誰でもすぐわかります。</p>
+        <h2 class="scenes__heading" id="scenes-title">お出かけの準備、<br>これひとつで</h2>
+        <p class="scenes__desc">遠足から旅行まで、さまざまなお出かけシーンに対応。リストを共有すれば、準備する人が誰でもすぐわかります。</p>
       </div>
       <div class="scenes__tags">
         <span class="scene-pill"><span class="scene-pill__emoji">🎒</span> 遠足・校外学習</span>
         <span class="scene-pill"><span class="scene-pill__emoji">🏃</span> 運動会</span>
         <span class="scene-pill"><span class="scene-pill__emoji">✈️</span> 旅行（1泊）</span>
         <span class="scene-pill"><span class="scene-pill__emoji">🏊</span> プール</span>
-        <span class="scene-pill"><span class="scene-pill__emoji">👨</span> パパが初めて準備</span>
-        <span class="scene-pill"><span class="scene-pill__emoji">🏠</span> おばあちゃん家お泊まり</span>
         <span class="scene-pill"><span class="scene-pill__emoji">🌳</span> 公園（半日）</span>
         <span class="scene-pill"><span class="scene-pill__emoji">🏫</span> 通園・通学</span>
         <span class="scene-pill"><span class="scene-pill__emoji">🏥</span> 通院</span>
@@ -896,26 +1005,26 @@
     </div>
   </section>
 
-  <!-- ==================== 06. Mid CTA ==================== -->
+  <!-- ==================== 06. Mid CTA (ADD-01 button / #4/#19 copy) ==================== -->
   <section class="mid-cta">
     <div class="wrap">
       <div class="mid-cta__text">
         忘れ物ゼロの毎日を、はじめよう。
         <small>リストを作って、家族に送るだけ。準備がもっとラクになる</small>
       </div>
-      <span class="btn-light">
+      <button disabled class="btn-light" aria-label="App Store — まもなく登場">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
-        App Store — 近日公開
-      </span>
+        まもなく登場 — App Store
+      </button>
     </div>
   </section>
 
-  <!-- ==================== 07. How it works ==================== -->
-  <section class="how">
+  <!-- ==================== 07. How it works (ADD-06 aria) ==================== -->
+  <section class="how" aria-labelledby="how-title">
     <div class="wrap">
       <div class="how__header">
         <div class="how__kicker">使い方</div>
-        <h2 class="how__title">かんたん3ステップ</h2>
+        <h2 class="how__title" id="how-title">かんたん3ステップ</h2>
       </div>
       <div class="stepper">
         <div class="stepper__line"></div>
@@ -944,15 +1053,15 @@
     </div>
   </section>
 
-  <!-- ==================== 08. Trust ==================== -->
-  <section class="trust">
+  <!-- ==================== 08. Trust (#9 + #15 premium mention / ADD-06 aria) ==================== -->
+  <section class="trust" aria-labelledby="trust-title">
     <div class="wrap">
       <div class="trust__item">
         <div class="trust__icon">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
         </div>
         <div>
-          <div class="trust__label">共有は無料・人数無制限</div>
+          <h3 class="trust__label" id="trust-title">共有は無料・人数無制限</h3>
           <p class="trust__desc">家族何人でも無料で共有できます。招待コードを送るだけで簡単に接続。</p>
         </div>
       </div>
@@ -970,26 +1079,27 @@
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
         </div>
         <div>
-          <div class="trust__label">無料ではじめられる</div>
-          <p class="trust__desc">ダウンロードも利用も無料。すぐにお出かけ準備に使い始められます。</p>
+          <!-- #9 + #15 premium mention -->
+          <div class="trust__label">基本無料で始められる</div>
+          <p class="trust__desc">基本機能は無料。広告非表示や複数グループなどのプレミアム機能もあります。</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ==================== 09. Bottom CTA ==================== -->
+  <!-- ==================== 09. Bottom CTA (#10 neutral text / ADD-01 button / #4/#19 copy) ==================== -->
   <section class="bottom-cta">
     <div class="wrap">
       <h2 class="bottom-cta__title">もう「忘れた！」で<br>慌てない。</h2>
-      <p class="bottom-cta__desc">リストを作って、チェックして、パパにも送る。<br>お出かけ準備、これひとつで。</p>
-      <span class="btn-primary">
+      <p class="bottom-cta__desc">リストを作って、チェックして、家族で共有。<br>お出かけ準備、これひとつで。</p>
+      <button disabled class="btn-primary" aria-label="App Store — まもなく登場">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
-        App Store — 近日公開
-      </span>
+        まもなく登場 — App Store
+      </button>
     </div>
   </section>
 
-  <!-- ==================== 10. Footer ==================== -->
+  <!-- ==================== 10. Footer (#20 copyright) ==================== -->
   <footer class="footer">
     <div class="wrap">
       <nav class="footer__nav" aria-label="フッターナビゲーション">
